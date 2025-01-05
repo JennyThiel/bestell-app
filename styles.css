@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+header {
+    height: 80px;
+    background-color: rgba(245, 112, 4, 0.942);
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.aot {
+    height: 400px;
+    width: 1400px;
+    object-fit: cover;
+
+}
+
+footer {
+    background-color: rgba(245, 112, 4, 0.942);
+    height: 80px;
+}
