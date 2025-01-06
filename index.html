@@ -11,20 +11,41 @@
         <script src="./scripts/templades.js"></script>
         <script src="./script.js"></script>
     </head>
-    <body>
+    <body onload="renderMyMenu()">
         <header>
-            <img class="logo" src="./assets/icons/Logo.png" alt="">
+            <nav>
+                <img class="logo" src="./assets/icons/Logo.png" alt="">
+            </nav>  
         </header>
         <main>
             <section>
                 <img class="aot" src="./assets/img/aot.jpg" alt="Pizza">
-                <h2>zum Pizza und Nudelhaus</h2>
+                <h1>Pizza und Nudelhaus</h1>
+                <img class="meal" src="./assets/img/noodles.jpg" alt="Dessert">
+                <div id="content"></div>
+                <img class="meal" src="./assets/img/dessert.jpg" alt="Dessert">
+                <div id="dessertContent"></div>
             </section>
-            <div id="content"></div>
+            <h2>Warenkorb</h2>
             <div id="orderbasket"></div>
         </main>
+        
         <footer>
-            
+            <div class="footer">
+                <div class="links">
+                    <a class="footerLink" href="">Impressum</a>
+                    <span class="slash">|</span>
+                    <a class="footerLink" href="">Datenschutz</a>
+                    <span class="slash">|</span>
+                    <a class="footerLink" href="">AGB</a>
+                </div>
+                <div class="socialmedia">
+                    <a href="https://www.facebook.com/?locale=de_DE" target="_blank"><img class="footerIcon"  src="./assets/icons/facebook.png" alt="Logo facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img class="footerIcon" src="./assets/icons/instagram.png" alt="Logo instagram"></a>
+                    <a href="https://x.com/?lang=de&mx=2" target="_blank"><img class="footerIcon" src="./assets/icons/x.png" alt="Logo X"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img class="footerIcon" src="./assets/icons/youtube.png" alt="Logo Youtube"></a>
+                </div>
+            </div>
         </footer>
     </body>
 </html>

@@ -1,6 +1,7 @@
 body {
     margin: 0;
     min-height: 100vh;
+    font-family: Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -11,8 +12,15 @@ main {
 
 header {
     height: 80px;
-    background-color: rgba(245, 112, 4, 0.942);
+    background-color: #ff8000;
 }
+
+nav {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .logo {
     height: 60px;
@@ -23,10 +31,41 @@ header {
     height: 400px;
     width: 1400px;
     object-fit: cover;
+}
 
+.meal {
+    height: 200px;
+    width: 1400px;
+    object-fit: cover;
+}
+
+.orderbutton {
+    width: 36px;
 }
 
 footer {
-    background-color: rgba(245, 112, 4, 0.942);
+    background-color: #ff8000;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 80px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: white;  
+}
+
+.slash {
+    color: white;
+}
+
+.footerIcon {
+    height: 32px;
 }
