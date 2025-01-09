@@ -8,11 +8,16 @@ body {
 
 main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: row;
 }
 
 header {
     height: 80px;
     background-color: #ff8000;
+    box-shadow: 2px 2px 2px -6px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 2px 2px 26px -6px rgba(0,0,0,0.51);
+    -moz-box-shadow: 2px 29px 26px -6px rgba(192, 133, 133, 0.51);
 }
 
 nav {
@@ -35,6 +40,32 @@ nav {
     object-fit: cover;
 }
 
+.companyLogo {
+    height: 80px;
+    width: auto;
+    position: absolute;
+    top: 350px;
+    left: 140px;
+    border-radius: 1rem;
+}
+
+h1 {
+    margin-left: 140px;
+}
+
+.menuBtn {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 0;
+  background-color: aliceblue;
+  border-radius: 1.5rem;
+}
+
+.menuBtn:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
 .meal {
     height: 200px;
     width: 1400px;
@@ -43,6 +74,15 @@ nav {
 
 .orderbutton {
     width: 36px;
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
 }
 
 footer {
@@ -64,6 +104,11 @@ footer {
     color: white;  
 }
 
+.footerLink:hover {
+  cursor: pointer;
+  font-size: 20px;
+}
+
 .slash {
     color: white;
 }
@@ -72,4 +117,13 @@ footer {
     height: 32px;
     background-color: white;
     border-radius: 2rem;
+}
+
+.footerIcon:hover {
+    cursor: pointer;
+    height: 40px;
+}
+
+.bold {
+    font-weight: bold;
 }
