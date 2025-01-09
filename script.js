@@ -1,4 +1,4 @@
-let  = myMenu [
+let myMenu = [
     {
      "courts": "Pizza Salami",
      "with": "Salami und Käse",
@@ -18,7 +18,6 @@ let  = myMenu [
  
  function renderMyMenu() {
     let contentRef = document.getElementById('content');
-    contentRef.innerHTML = '';
    
     for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
        contentRef.innerHTML += getNoteTemplate(indexMyMenu);
