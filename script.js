@@ -20,6 +20,58 @@ let myMenu = [
     let contentRef = document.getElementById('content');
    
     for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
-       contentRef.innerHTML += getNoteTemplate(indexMyMenu);
+       contentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
+    }
+}
+
+let myDessert = [
+    {
+     "courts": "Donat",
+     "with": "Schoko und Vanillefüllung",
+     "price": "5,50 €"
+     },  
+     {
+     "courts": "Käsekunchen",
+     "with": "Erdbeer Sahnefüllung",
+     "price": "6,50 €"
+     },
+     {
+     "courts": "Vanilleeis",
+     "with": "heißen Himmbeeren",
+     "price": "5,50 €"
+    }
+ ];
+
+ function renderMyDessert() {
+    let contentRef = document.getElementById('dessertContent');
+   
+    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
+       contentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
+    }
+}
+
+let myDrinks = [
+    {
+     "courts": "Coca Cola zero",
+     "with": "whitout Sugar",
+     "price": "5,50 €"
+     },  
+     {
+     "courts": "Orangensaft",
+     "with": "Frischen Orangen",
+     "price": "6,50 €"
+     },
+     {
+     "courts": "Kaffee",
+     "with": "Milch und Zucker",
+     "price": "5,50 €"
+    }
+ ];
+
+ function renderMyDrinks() {
+    let contentRef = document.getElementById('drinksContent');
+   
+    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
+       contentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
     }
 }
