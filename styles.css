@@ -44,8 +44,8 @@ nav {
     height: 80px;
     width: auto;
     position: absolute;
-    top: 350px;
-    left: 140px;
+    top: 320px;
+    left: 120px;
     border-radius: 1rem;
 }
 
@@ -117,6 +117,11 @@ footer {
     height: 32px;
     background-color: white;
     border-radius: 2rem;
+}
+.solid {
+    height: 26px;
+    padding: 2px;
+    border: 1px solid;
 }
 
 .footerIcon:hover {
