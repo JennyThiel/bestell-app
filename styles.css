@@ -4,6 +4,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 
 main {
@@ -26,7 +27,6 @@ nav {
     margin-right: auto;
 }
 
-
 .logo {
     height: 60px;
     width: auto;
@@ -34,7 +34,15 @@ nav {
     padding-left: 16px;
 }
 
+.main {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 16px; */
+}
+
 .aot {
+    /* position: absolute; */
     height: 400px;
     width: 1400px;
     object-fit: cover;
@@ -53,12 +61,18 @@ h1 {
     margin-left: 140px;
 }
 
+.myBtn {
+    margin-left: 16px;
+}
+
 .menuBtn {
-  padding: 8px;
-  margin-bottom: 8px;
-  border: 0;
-  background-color: aliceblue;
-  border-radius: 1.5rem;
+    font-weight: bold;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 0;
+    background-color: aliceblue;
+    color: #212020;
+    border-radius: 1.5rem;
 }
 
 .menuBtn:hover {
@@ -66,23 +80,47 @@ h1 {
     background-color: lightgrey;
 }
 
-.meal {
+h2 {
+    text-align: center;
+}
+
+.foodImg {
     height: 200px;
     width: 1400px;
     object-fit: cover;
 }
 
-.orderbutton {
+.food {
+    margin: 16px;
+    padding-left: 16px;
+    border: 1.5px solid;
+    border-color: #a6a3a3;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderBtn {
+    cursor: pointer;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    border: 0;
+}
+
+.orderBtnImg {
     width: 36px;
 }
 
 .order {
+    width: 100%;
     display: flex;
     justify-content: center;
-}
-
-h2 {
     text-align: center;
+    box-shadow: 2px 2px 2px -6px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 2px 2px 26px -6px rgba(0,0,0,0.51);
+    -moz-box-shadow: 2px 29px 26px -6px rgba(192, 133, 133, 0.51);
 }
 
 footer {
@@ -97,6 +135,8 @@ footer {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .footerLink {
@@ -105,8 +145,8 @@ footer {
 }
 
 .footerLink:hover {
-  cursor: pointer;
-  font-size: 20px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .slash {
@@ -129,6 +169,27 @@ footer {
     height: 40px;
 }
 
+.impressum,
+.datenschutz,
+.agb {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+   
+}
+
 .bold {
     font-weight: bold;
+}
+
+.none {
+    text-decoration: none;
+    color: #ff8000;
+    
+}
+
+.none:hover {
+    cursor: pointer;
 }
