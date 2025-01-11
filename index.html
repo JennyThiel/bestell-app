@@ -11,10 +11,10 @@
         <script src="./scripts/templades.js"></script>
         <script src="./script.js"></script>
     </head>
-    <body onload="renderMyMenu()">
+    <body onload="renderMyMenu(), renderMyDessert(), renderMyDrinks()">
         <header>
             <nav>
-                <img class="logo" src="./assets/icons/Logo.png" alt="Logo Bestellapp">
+                <a href="./index.html"><img class="logo" src="./assets/icons/Logo.png" alt="Logo Bestellapp"></a>
             </nav>  
         </header>
         <main>
@@ -23,14 +23,17 @@
                 <img class="companyLogo" src="./assets/img/logo-piza.png" alt="Firmenlogo">
                 <h1>Pizza und Nudelhaus</h1>
                 <div>
-                    <button class="menuBtn">Hauptgerichte</button>
-                    <button class="menuBtn">Dessert</button>
-                    <button class="menuBtn">Getränke</button>
+                    <a href="#mainCourse"><button class="menuBtn">Hauptgerichte</button></a>
+                    <a href="#dessert"><button class="menuBtn">Dessert</button></a>
+                    <a href="#dirnks"><button class="menuBtn">Getränke</button></a>
                 </div>
+                <h2 id="mainCourse">Hauptgerichte</h2>
                 <img class="meal" src="./assets/img/noodles.jpg" alt="Dessert">
                 <div id="content"></div>
+                <h2 id="dessert">Dessert</h2>
                 <img class="meal" src="./assets/img/dessert.jpg" alt="Dessert">
                 <div id="dessertContent"></div>
+                <h2 id="dirnks">Getränke</h2></a>
                 <img class="meal" src="./assets/img/softdrinks.jpg" alt="drinks">
                 <div id="drinksContent"></div>
             </section>
@@ -51,7 +54,7 @@
                 <div class="socialmedia">
                     <a href="https://www.facebook.com/?locale=de_DE" target="_blank"><img class="footerIcon"  src="./assets/icons/facebook.png" alt="Logo facebook"></a>
                     <a href="https://www.instagram.com/" target="_blank"><img class="footerIcon" src="./assets/icons/instagram.png" alt="Logo instagram"></a>
-                    <a href="https://x.com/?lang=de&mx=2" target="_blank"><img class="footerIcon" src="./assets/icons/x.png" alt="Logo X"></a>
+                    <a href="https://x.com/?lang=de&mx=2" target="_blank"><img class="footerIcon solid" src="./assets/icons/x.png" alt="Logo X"></a>
                     <a href="https://www.youtube.com/" target="_blank"><img class="footerIcon" src="./assets/icons/youtube.png" alt="Logo Youtube"></a>
                 </div>
             </div>
