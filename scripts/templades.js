@@ -5,7 +5,7 @@ function getNoteTemplateMenu(indexMyMenu) {
                 <div>
                     <h3>${menu.courts}</h3>
                     <p>${menu.with}</p>
-                    <p>${menu.price}</p>
+                    <p>${menu.price.toFixed(2)} €</p>
                 </div>
                 <button class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
@@ -20,7 +20,7 @@ function getNoteTemplateDessert(indexMyDessert) {
                 <div>
                     <h3>${dessert.courts}</h3>
                     <p>${dessert.with}</p>
-                    <p>${dessert.price}</p>
+                    <p>${dessert.price.toFixed(2)} €</p>
                 </div>
                 <button class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
@@ -35,7 +35,7 @@ function getNoteTemplateDrinks(indexMyDrinks) {
                     <div>
                         <h3>${drinks.courts}</h3>
                         <p>${drinks.with}</p>
-                        <p>${drinks.price}</p>
+                        <p>${drinks.price.toFixed(2)} €</p>
                     </div>    
                 <button class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
