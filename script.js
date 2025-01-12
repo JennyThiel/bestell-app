@@ -13,7 +13,17 @@ let myMenu = [
      "courts": "Spaghethi Bolognese",
      "with": "Hackfleisch, Gemüse und Sause",
      "price": "9,50 €"
-    }
+    },
+    {
+      "courts": "Spaghethi Carbonara",
+      "with": "Schinken und Käsesahnesoße",
+      "price": "9,50 €"
+     },
+     {
+      "courts": "Dönerteller mit Halloumi",
+      "with": "mit Pommes und Hawaiisauce",
+      "price": "11,00 €"
+     }
  ];
  
  function renderMyMenu() {
@@ -39,7 +49,12 @@ let myDessert = [
      "courts": "Vanilleeis",
      "with": "heißen Himmbeeren",
      "price": "5,50 €"
-    }
+    },
+    {
+      "courts": "Pfannenkuchen",
+      "with": "Erdbeermarmelade",
+      "price": "4,50 €"
+     }
  ];
 
  function renderMyDessert() {
@@ -55,7 +70,12 @@ let myDrinks = [
      "courts": "Coca Cola zero",
      "with": "whitout Sugar",
      "price": "5,50 €"
-     },  
+     },
+     {
+      "courts": "Eistee",
+      "with": "Pfirsichgeswchmack",
+      "price": "5,50 €"
+      }, 
      {
      "courts": "Orangensaft",
      "with": "Frischen Orangen",
