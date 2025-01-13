@@ -26,16 +26,9 @@ let myMenu = [
      }
  ];
  
-//  let cart = [];
+//  let cart =[];
 
-//  let menu = document.getElementById('content');
-//  myMenu.contentRef = menu {
 
-//    for (let indexMyMenu = 0; indexMyMenu < array.length; indexMyMenu++) {
-//       const element = array[indexMyMenu];  
-//    }
-//  };
- 
  function renderMyMenu() {
     let contentRef = document.getElementById('content');
    
@@ -43,6 +36,17 @@ let myMenu = [
        contentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
     }
 }
+
+// let button = basket
+
+// function renderCart() {
+//    let cartContenttRef = document.getElementById('order-cart')
+//    cartContenttRef.innerHTML = '';
+
+//    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
+//       cartContentRef.innerHTML += getNoteTemplateCart(indexCart);
+//    }
+// }
 
 let myDessert = [
     {
