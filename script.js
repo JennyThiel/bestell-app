@@ -1,33 +1,3 @@
-let myMenu = [
-    {
-     "courts": "Pizza Salami",
-     "with": "Salami und Käse",
-     "price": 8.50
-     },  
-     {
-     "courts": "Pizza Schinken",
-     "with": "Schinken und Käse",
-     "price": 8.50
-     },
-     {
-     "courts": "Spaghethi Bolognese",
-     "with": "Hackfleisch, Gemüse und Sause",
-     "price": 9.50
-    },
-    {
-      "courts": "Spaghethi Carbonara",
-      "with": "Schinken und Käsesahnesoße",
-      "price": 9.50
-     },
-     {
-      "courts": "Dönerteller mit Halloumi",
-      "with": "mit Pommes und Hawaiisauce",
-      "price": 11.00
-     }
- ];
- 
-//  let cart =[];
-
 
  function renderMyMenu() {
     let contentRef = document.getElementById('content');
@@ -37,40 +7,6 @@ let myMenu = [
     }
 }
 
-// let button = basket
-
-// function renderCart() {
-//    let cartContenttRef = document.getElementById('order-cart')
-//    cartContenttRef.innerHTML = '';
-
-//    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-//       cartContentRef.innerHTML += getNoteTemplateCart(indexCart);
-//    }
-// }
-
-let myDessert = [
-    {
-     "courts": "Donat",
-     "with": "Schoko und Vanillefüllung",
-     "price": 5.50
-     },  
-     {
-     "courts": "Käsekunchen",
-     "with": "Erdbeer Sahnefüllung",
-     "price": 6.50
-     },
-     {
-     "courts": "Vanilleeis",
-     "with": "heißen Himmbeeren",
-     "price": 5.50
-    },
-    {
-      "courts": "Pfannenkuchen",
-      "with": "Erdbeermarmelade",
-      "price": 4.50
-     }
- ];
-
  function renderMyDessert() {
     let contentRef = document.getElementById('dessertContent');
    
@@ -78,29 +14,6 @@ let myDessert = [
        contentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
     }
 }
-
-let myDrinks = [
-    {
-     "courts": "Coca Cola zero",
-     "with": "whitout Sugar",
-     "price": 5.50
-     },
-     {
-      "courts": "Eistee",
-      "with": "Pfirsichgeswchmack",
-      "price": 5.50
-      }, 
-     {
-     "courts": "Orangensaft",
-     "with": "Frischen Orangen",
-     "price": 6.50
-     },
-     {
-     "courts": "Kaffee",
-     "with": "Milch und Zucker",
-     "price": 5.50
-    }
- ];
 
  function renderMyDrinks() {
     let contentRef = document.getElementById('drinksContent');

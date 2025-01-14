@@ -1,0 +1,63 @@
+header {
+    height: 80px;
+    background-color: #ff8000;
+}
+
+nav {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    padding-top: 8px;
+    padding-left: 16px;
+}
+
+footer {
+    background-color: #ff8000;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: white;  
+}
+
+.footerLink:hover {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.slash {
+    color: white;
+}
+
+.footerIcon {
+    height: 32px;
+    background-color: white;
+    border-radius: 2rem;
+}
+.solid {
+    height: 26px;
+    padding: 2px;
+    border: 1px solid;
+}
+
+.footerIcon:hover {
+    cursor: pointer;
+    height: 40px;
+}

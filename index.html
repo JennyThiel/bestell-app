@@ -6,8 +6,10 @@
         <title>BestellApp</title>
         <link rel="icon" href="./assets/icons/favicon-16x16.png">
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="stylesheet" type="text/css" href="styles/">
+        <link rel="stylesheet" type="text/css" href="styles/standard.css">
+        <link rel="stylesheet" type="text/css" href="styles/headder-footer.css">
 
+        <script src="./scripts/datenbank.js"></script>
         <script src="./scripts/templades.js"></script>
         <script src="./script.js"></script>
     </head>
@@ -21,27 +23,36 @@
             <section class="main">
                 <img class="aot" src="./assets/img/aot.jpg" alt="Pizza">
                 <img class="companyLogo" src="./assets/img/logo-piza.png" alt="Firmenlogo">
-                <h1>Pizza und Nudelhaus</h1>
-                <div class="myBtn">
-                    <a href="#mainCourse"><button class="menuBtn">Hauptgerichte</button></a>
-                    <a href="#dessert"><button class="menuBtn">Dessert</button></a>
-                    <a href="#dirnks"><button class="menuBtn">Getränke</button></a>
+                <div class="sticky">
+                    <h1>Pizza und Nudelhaus</h1>
+                    <div class="myBtn">
+                        <a href="#mainCourse"><button class="menuBtn">Hauptgerichte</button></a>
+                        <a href="#dessert"><button class="menuBtn">Dessert</button></a>
+                        <a href="#dirnks"><button class="menuBtn">Getränke</button></a>
+                    </div>
                 </div>
                 <!-- Content -->
-                <h2 id="mainCourse">Hauptgerichte</h2>
-                <img class="foodImg" src="./assets/img/noodles.jpg" alt="courts">
-                <div id="content"></div>
-                <h2 id="dessert">Dessert</h2>
-                <img class="foodImg" src="./assets/img/dessert.jpg" alt="Dessert">
-                <div id="dessertContent"></div>
-                <h2 id="dirnks">Getränke</h2></a>
-                <img class="foodImg" src="./assets/img/softdrinks.jpg" alt="drinks">
+                <div id="content">
+                    <img id="mainCourse" class="foodImg" src="./assets/img/noodles.jpg" alt="courts">
+                    <h2>Hauptgerichte</h2>
+                </div>
+
+                <div id="dessertContent">
+                    <img id="dessert" class="foodImg" src="./assets/img/dessert.jpg" alt="Dessert">
+                    <h2>Dessert</h2>
+                </div>
+
+                <img id="dirnks" class="foodImg" src="./assets/img/softdrinks.jpg" alt="drinks">
+                <h2>Getränke</h2>
                 <div id="drinksContent"></div>
             </section>
             <!-- Warenkorb -->
             <section class="order">
-                
-                <div class="basket" id="orderbasket"><h2>Warenkorb</h2></div>
+                <h2>Warenkorb</h2>
+                <div class="basket" id="orderbasket">
+                    <img class="shoppingCartIcon d-none" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+                    <p class="shoppingCartText d-none">befülle hier deinen Warenkorb</p>
+                </div>
             </section>    
         </main>
         <footer>
