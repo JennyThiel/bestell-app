@@ -1,4 +1,5 @@
 html {
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
@@ -14,4 +15,27 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
+}
+
+.aot {
+    height: 400px;
+    width: 1400px;
+    object-fit: cover;
+}
+
+.companyLogo {
+    height: 80px;
+    width: auto;
+    position: absolute;
+    top: 320px;
+    left: 120px;
+    border-radius: 1rem;
+}
+
+h1 {
+    margin-left: 140px;
+}
+
+h2 {
+    text-align: center;
 }

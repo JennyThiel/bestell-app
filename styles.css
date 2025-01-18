@@ -5,21 +5,6 @@
     -moz-box-shadow: 2px 29px 26px -6px rgba(192, 133, 133, 0.51);
 }
 
-.aot {
-    height: 400px;
-    width: 1400px;
-    object-fit: cover;
-}
-
-.companyLogo {
-    height: 80px;
-    width: auto;
-    position: absolute;
-    top: 320px;
-    left: 120px;
-    border-radius: 1rem;
-}
-
 .sticky {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -30,10 +15,6 @@
     box-shadow: 2px 2px 2px -6px rgba(0,0,0,0.51);
     -webkit-box-shadow: 2px 2px 26px -8px rgba(0,0,0,0.51);
     -moz-box-shadow: 2px 29px 26px -6px rgba(192, 133, 133, 0.51);
-}
-
-h1 {
-    margin-left: 140px;
 }
 
 .myBtn {
@@ -67,8 +48,8 @@ h1 {
     font-weight: bold;
 }
 
-h2 {
-    text-align: center;
+.DiningCat {
+    max-width: 100% - 300px;
 }
 
 .foodImg {
@@ -103,7 +84,7 @@ h2 {
 .order {
     position: sticky;
     top: 0;
-    width: 300px;
+    min-width: 300px;
     height: 100vH;
     margin-left: auto;
     margin-right: auto;
@@ -121,6 +102,20 @@ h2 {
     box-shadow: 2px 2px 2px -6px rgba(0,0,0,0.51);
     -webkit-box-shadow: 2px 2px 26px -8px rgba(0,0,0,0.51);
     -moz-box-shadow: 2px 29px 26px -6px rgba(192, 133, 133, 0.51);
+}
+
+.cart {
+    padding-left: 16px;
+    width: 280px;
+    border: #bfbdbd solid 0.5px;
+}
+
+.plusBtn {
+    color: #ff8000;
+    font-size: 24px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 2rem;
 }
 
 .impressum,
