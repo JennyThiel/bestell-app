@@ -84,3 +84,5 @@ let myMenu = [
      "amount" : 0
     }
  ];
+
+ let cart = [];
