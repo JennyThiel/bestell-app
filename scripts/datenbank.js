@@ -1,10 +1,11 @@
+// let dishes = [
+//   myMenu,
+//   myDessert,
+//   myDrinks
+// ];
+
 let myMenu = [
-    {
-     "courts" : "Pizza Salami",
-     "with" : "Salami und Käse",
-     "price" : 8.50,
-     "amount" : 0
-     },  
+
      {
      "courts" : "Pizza Schinken",
      "with" : "Schinken und Käse",
@@ -37,7 +38,7 @@ let myMenu = [
      "with" : "Schoko und Vanillefüllung",
      "price" : 5.50,
      "amount" : 0
-     },  
+     },
      {
      "courts" : "Käsekunchen",
      "with" : "Erdbeer Sahnefüllung",
@@ -70,7 +71,7 @@ let myMenu = [
       "with" : "Pfirsichgeswchmack",
       "price" : 5.50,
       "amount" : 0
-      }, 
+      },
      {
      "courts" : "Orangensaft",
      "with" : "Frischen Orangen",

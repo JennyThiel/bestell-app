@@ -31,11 +31,16 @@ function renderMyOrder() {
    }
 }
 
+
+
 function addToCart() {
    let myMenuRef = document.getElementById('myMenuBtn');
 
-   return myMenu.find(menu => myMenu.id === id);
+   return myMenuRef.find(dishes => myMenu.id === id);
 }
+
+
+
 
 let sellectedProduct = addToCart(2);
 
