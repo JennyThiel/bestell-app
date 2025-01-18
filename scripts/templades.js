@@ -7,7 +7,7 @@ function getNoteTemplateMenu(indexMyMenu) {
                     <p>${menu.with}</p>
                     <p>${menu.price.toFixed(2)} €</p>
                 </div>
-                <button class="orderBtn">
+                <button onclick="addToCart(${indexMyMenu})" id="myMenuBtn" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
@@ -22,7 +22,7 @@ function getNoteTemplateDessert(indexMyDessert) {
                     <p>${dessert.with}</p>
                     <p>${dessert.price.toFixed(2)} €</p>
                 </div>
-                <button class="orderBtn">
+                <button onclick="addToCart(${indexMyDessert})" id="dessertBtn" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </butten>
             </div>`;
@@ -37,8 +37,21 @@ function getNoteTemplateDrinks(indexMyDrinks) {
                         <p>${drinks.with}</p>
                         <p>${drinks.price.toFixed(2)} €</p>
                     </div>    
-                <button class="orderBtn">
+                <button onclick="addToCart(${indexMyDrinks})" id="dinksBtn" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
+}
+
+function getNoteTemplateOrderCart(indexMyCart) {
+    let cart = myCart[indexMyCart]
+
+    return `   <div class="cart">
+                    <h3>${cart.courts}</h3>
+                    <p>${cart.with}</p>
+                    <button onclick="deleteOne()" class="plusBtn">-</button>
+                    <span>1</span>
+                    <button onclick="addOne()" class="plusBtn">+</button>
+                    <p>${cart.price.toFixed(2)} €</p>
+                </div>`;
 }
