@@ -43,7 +43,7 @@ function addToCart(index) {
       courts: sellectedDish.courts,
       with: sellectedDish.with,
       price: sellectedDish.price,
-      amount: 1,
+      amount: 0,
    });
 
    saveToLocalStorage();
