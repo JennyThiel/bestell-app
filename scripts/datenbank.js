@@ -6,8 +6,8 @@ let myMenu = [
      "amount" : 0
      },
      {
-     "courts" : "Spaghethi Bolognese",
-     "with" : "Hackfleisch, Gemüse und Sause",
+     "courts" : "Spaghetti Bolognese",
+     "with" : "Hackfleisch, Gemüse und Sauce",
      "price" : 9.50,
      "amount" : 0
     },
@@ -33,14 +33,14 @@ let myMenu = [
      "amount" : 0
      },
      {
-     "courts" : "Käsekunchen",
+     "courts" : "Käsekuchen",
      "with" : "Erdbeer Sahnefüllung",
      "price" : 6.50,
      "amount" : 0
      },
      {
      "courts" : "Vanilleeis",
-     "with" : "heißen Himmbeeren",
+     "with" : "heißen Himbeeren",
      "price" : 5.50,
      "amount" : 0
     },
@@ -55,13 +55,13 @@ let myMenu = [
  let myDrinks = [
     {
      "courts" : "Coca Cola zero",
-     "with" : "whitout Sugar",
+     "with" : "without Sugar",
      "price" : 5.50,
      "amount" : 0
      },
      {
       "courts" : "Eistee",
-      "with" : "Pfirsichgeswchmack",
+      "with" : "Pfirsichgeschmack",
       "price" : 5.50,
       "amount" : 0
       },
