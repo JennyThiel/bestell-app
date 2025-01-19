@@ -7,7 +7,7 @@ function getNoteTemplateMenu(indexMyMenu) {
                     <p>${menu.with}</p>
                     <p>${menu.price.toFixed(2)} €</p>
                 </div>
-                <button onclick="addToCart(${indexMyMenu})" id="myMenuBtn" class="orderBtn">
+                <button onclick="addToCart(${indexMyMenu})" id="myMenuBtn-${indexMyMenu}" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
@@ -44,14 +44,14 @@ function getNoteTemplateDrinks(indexMyDrinks) {
 }
 
 function getNoteTemplateOrderCart(indexMyCart) {
-    let cart = myCart[indexMyCart]
+    let selectedCart = cart[indexMyCart]
 
     return `   <div class="cart">
-                    <h3>${cart.courts}</h3>
-                    <p>${cart.with}</p>
+                    <h3>${selectedCart.courts}</h3>
+                    <p>${selectedCart.with}</p>
                     <button onclick="deleteOne()" class="plusBtn">-</button>
                     <span>1</span>
                     <button onclick="addOne()" class="plusBtn">+</button>
-                    <p>${cart.price.toFixed(2)} €</p>
+                    <p>${selectedCart.price.toFixed(2)} €</p>
                 </div>`;
 }

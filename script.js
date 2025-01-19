@@ -25,6 +25,7 @@ function renderMyDessert() {
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
+   // console.error('Element mit der ID "orderbasket" wurde nicht gefunden.'); 
 
    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart)
@@ -33,12 +34,23 @@ function renderMyOrder() {
 
 
 
-function addToCart() {
-   let myMenuRef = document.getElementById('myMenuBtn');
-   let dishes = myMenuRef.innerHTML
 
-   return myMenuRef.find(dishes => myMenu.id === id);
+function addToCart(index) {
+   // ruft Gericht aus Index auf
+   let sellectedDish = myMenu[index];
+
+   cart.push({
+      courts: sellectedDish.courts,
+      with: sellectedDish.with,
+      price: sellectedDish.price,
+      amount: 1,
+   });
+
+   saveToLocalStorage();
+
+   renderMyOrder();
 }
+
 
 
 

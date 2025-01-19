@@ -1,11 +1,4 @@
-// let dishes = [
-//   myMenu,
-//   myDessert,
-//   myDrinks
-// ];
-
 let myMenu = [
-
      {
      "courts" : "Pizza Schinken",
      "with" : "Schinken und Käse",
@@ -84,6 +77,12 @@ let myMenu = [
      "price" : 5.50,
      "amount" : 0
     }
+ ];
+
+let dishes = [
+   myMenu,
+   myDessert,
+   myDrinks
  ];
 
  let cart = [];
