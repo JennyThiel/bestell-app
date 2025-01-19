@@ -24,7 +24,7 @@ function getNoteTemplateDessert(indexMyDessert) {
                 </div>
                 <button onclick="addToCart(${indexMyDessert})" id="dessertBtn" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
-                </butten>
+                </button>
             </div>`;
 }
 
@@ -37,7 +37,7 @@ function getNoteTemplateDrinks(indexMyDrinks) {
                         <p>${drinks.with}</p>
                         <p>${drinks.price.toFixed(2)} €</p>
                     </div>    
-                <button onclick="addToCart(${indexMyDrinks})" id="dinksBtn" class="orderBtn">
+                <button onclick="addToCart(${indexMyDrinks})" id="drinksBtn" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
