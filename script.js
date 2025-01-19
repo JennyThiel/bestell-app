@@ -35,6 +35,7 @@ function renderMyOrder() {
 
 function addToCart() {
    let myMenuRef = document.getElementById('myMenuBtn');
+   let dishes = myMenuRef.innerHTML
 
    return myMenuRef.find(dishes => myMenu.id === id);
 }
