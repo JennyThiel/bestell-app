@@ -83,13 +83,4 @@ let myMenu = [
     }
  ];
 
-<<<<<<< HEAD
-let dishes = [
-   myMenu,
-   myDessert,
-   myDrinks
- ];
-
-=======
->>>>>>> test
 let cart = [];
