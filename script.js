@@ -43,7 +43,7 @@ function addToCart(index) {
       courts: sellectedDish.courts,
       with: sellectedDish.with,
       price: sellectedDish.price,
-      amount: 0,
+      amount: 1,
    });
 
    saveToLocalStorage();
@@ -51,7 +51,37 @@ function addToCart(index) {
    renderMyOrder();
 }
 
+function addToCart2(index) {
+   // ruft Gericht aus Index auf
+   let sellectedDish = myDrinks[index];
 
+   cart.push({
+      courts: sellectedDish.courts,
+      with: sellectedDish.with,
+      price: sellectedDish.price,
+      amount: 1,
+   });
+
+   saveToLocalStorage();
+
+   renderMyOrder();
+}
+
+function addToCart3(index) {
+   // ruft Gericht aus Index auf
+   let sellectedDish = myDessert[index];
+
+   cart.push({
+      courts: sellectedDish.courts,
+      with: sellectedDish.with,
+      price: sellectedDish.price,
+      amount: 0,
+   });
+
+   saveToLocalStorage();
+
+   renderMyOrder();
+}
 
 
 
