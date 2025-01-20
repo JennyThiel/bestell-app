@@ -25,6 +25,7 @@ function renderMyDessert() {
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
+    cartContentRef.innerHTML = "";
 
    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
@@ -48,39 +49,6 @@ function addToCart(index) {
    renderMyOrder();
 }
 
-<<<<<<< HEAD
-function addToCart2(index) {
-   // ruft Gericht aus Index auf
-   let sellectedDish = myDrinks[index];
-
-   cart.push({
-      courts: sellectedDish.courts,
-      with: sellectedDish.with,
-      price: sellectedDish.price,
-      amount: 1,
-   });
-
-   saveToLocalStorage();
-
-   renderMyOrder();
-}
-
-function addToCart3(index) {
-   // ruft Gericht aus Index auf
-   let sellectedDish = myDessert[index];
-
-   cart.push({
-      courts: sellectedDish.courts,
-      with: sellectedDish.with,
-      price: sellectedDish.price,
-      amount: 0,
-   });
-
-   saveToLocalStorage();
-
-   renderMyOrder();
-}
-=======
 function addToDessertCart(index) {
    // ruft Gericht aus Index auf
    let sellectedDishDessert = myDessert[index];
@@ -91,14 +59,27 @@ function addToDessertCart(index) {
       price: sellectedDishDessert.price,
       amount: 1,
    });
->>>>>>> test
 
    saveToLocalStorage();
 
    renderMyOrder();
 }
 
-// let sellectedProduct = addToCart();
+function addToDrinksCart(index) {
+   // ruft Gericht aus Index auf
+   let sellectedDishDrinks = myDrinks[index];
+
+   cart.push({
+      courts: sellectedDishDrinks.courts,
+      with: sellectedDishDrinks.with,
+      price: sellectedDishDrinks.price,
+      amount: 1,
+   });
+
+   saveToLocalStorage();
+
+   renderMyOrder();
+}
 
 
 function saveToLocalStorage() {
@@ -110,9 +91,9 @@ function saveToLocalStorage() {
 
 // Lädt die Daten aus dem Local Storage oder erstellt leere Arrays
 function getFromLocalStorage() {
-   myMenu = JSON.parse(localStorage.getItem("myMenu"));
-   myDessert = JSON.parse(localStorage.getItem("myDessert"));
-   myMenu = JSON.parse(localStorage.getItem("myDrinks"));
-   cart = JSON.parse(localStorage.getItem("cart"));
+   myMenu = JSON.parse(localStorage.getItem("myMenu")) || [];
+   myDessert = JSON.parse(localStorage.getItem("myDessert")) || [];
+   myDrinks = JSON.parse(localStorage.getItem("myDrinks")) || [];
+   cart = JSON.parse(localStorage.getItem("cart")) || [];
 }
 
