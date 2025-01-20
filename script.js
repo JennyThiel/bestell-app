@@ -1,6 +1,6 @@
 
 function renderMyMenu() {
-   let menuContentRef = document.getElementById('content');
+   let menuContentRef = document.getElementById('menuContent');
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
@@ -25,14 +25,11 @@ function renderMyDessert() {
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
-   // console.error('Element mit der ID "orderbasket" wurde nicht gefunden.'); 
 
    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart)
+      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
    }
 }
-
-
 
 
 function addToCart(index) {
@@ -51,11 +48,23 @@ function addToCart(index) {
    renderMyOrder();
 }
 
+function addToDessertCart(index) {
+   // ruft Gericht aus Index auf
+   let sellectedDishDessert = myDessert[index];
 
+   cart.push({
+      courts: sellectedDishDessert.courts,
+      with: sellectedDishDessert.with,
+      price: sellectedDishDessert.price,
+      amount: 1,
+   });
 
+   saveToLocalStorage();
 
+   renderMyOrder();
+}
 
-let sellectedProduct = addToCart(2);
+// let sellectedProduct = addToCart();
 
 
 function saveToLocalStorage() {
