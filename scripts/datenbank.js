@@ -79,10 +79,4 @@ let myMenu = [
     }
  ];
 
-let dishes = [
-   myMenu,
-   myDessert,
-   myDrinks
- ];
-
- let cart = [];
+let cart = [];
