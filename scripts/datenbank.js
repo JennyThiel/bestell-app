@@ -7,11 +7,7 @@ let myMenu = [
      },
      {
      "courts" : "Spaghetti Bolognese",
-<<<<<<< HEAD
-     "with" : "Hackfleisch, Gemüse und Sauce",
-=======
      "with" : "Hackfleisch, Gemüse und Soße",
->>>>>>> test
      "price" : 9.50,
      "amount" : 0
     },
