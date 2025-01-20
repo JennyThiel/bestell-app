@@ -7,19 +7,23 @@ let myMenu = [
      },
      {
      "courts" : "Spaghetti Bolognese",
+<<<<<<< HEAD
      "with" : "Hackfleisch, Gemüse und Sauce",
+=======
+     "with" : "Hackfleisch, Gemüse und Soße",
+>>>>>>> test
      "price" : 9.50,
      "amount" : 0
     },
     {
-      "courts" : "Spaghethi Carbonara",
+      "courts" : "Spaghetti Carbonara",
       "with" : "Schinken und Käsesahnesoße",
       "price" : 9.50,
       "amount" : 0
      },
      {
       "courts" : "Dönerteller mit Halloumi",
-      "with" : "mit Pommes und Hawaiisauce",
+      "with" : "mit Pommes und Hawaiisoße",
       "price" : 11.00,
       "amount" : 0
      }
@@ -67,7 +71,7 @@ let myMenu = [
       },
      {
      "courts" : "Orangensaft",
-     "with" : "Frischen Orangen",
+     "with" : "frischen Orangen",
      "price" : 6.50,
      "amount" : 0
      },
@@ -79,10 +83,13 @@ let myMenu = [
     }
  ];
 
+<<<<<<< HEAD
 let dishes = [
    myMenu,
    myDessert,
    myDrinks
  ];
 
+=======
+>>>>>>> test
 let cart = [];
