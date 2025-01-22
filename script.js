@@ -32,9 +32,7 @@ function renderMyOrder() {
    }
 }
 
-
 function addToCart(index) {
-   // ruft Gericht aus Index auf
    let sellectedDish = myMenu[index];
 
    cart.push({
@@ -45,12 +43,10 @@ function addToCart(index) {
    });
 
    saveToLocalStorage();
-
    renderMyOrder();
 }
 
 function addToDessertCart(index) {
-   // ruft Gericht aus Index auf
    let sellectedDishDessert = myDessert[index];
 
    cart.push({
@@ -61,12 +57,17 @@ function addToDessertCart(index) {
    });
 
    saveToLocalStorage();
-
    renderMyOrder();
 }
 
+function renderMySum() {
+   let priceContentRef = document.getElementById('MySum');
+   priceContentRef.innerHTML = "";
+
+
+}
+
 function addToDrinksCart(index) {
-   // ruft Gericht aus Index auf
    let sellectedDishDrinks = myDrinks[index];
 
    cart.push({
@@ -77,10 +78,29 @@ function addToDrinksCart(index) {
    });
 
    saveToLocalStorage();
-
    renderMyOrder();
 }
 
+function deleteOne(index) {
+   if (cart[index].amount > 1) {
+      cart[index].amount--;
+   } else {
+      cart.splice(index, 1);
+   }
+
+   saveToLocalStorage();
+   renderMyOrder();
+}
+
+function addOne(index) {
+   cart[index].amount++;
+   saveToLocalStorage();
+   renderMyOrder();
+}
+
+function calculatePrice(price) {
+   
+}
 
 function saveToLocalStorage() {
    localStorage.setItem("myMenu", JSON.stringify(myMenu));
@@ -96,4 +116,3 @@ function getFromLocalStorage() {
    myDrinks = JSON.parse(localStorage.getItem("myDrinks")) || [];
    cart = JSON.parse(localStorage.getItem("cart")) || [];
 }
-
