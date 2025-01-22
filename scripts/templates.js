@@ -60,20 +60,17 @@ function getNoteTemplateOrderCart(indexMyCart) {
                 </div>    
             </div>`;
  }
- 
- function deleteOne(index) {
-    if (cart[index].amount > 1) {
-       cart[index].amount--;
-    } else {
-       cart.splice(index, 1);
-    }
- 
-    saveToLocalStorage();
-    renderMyOrder();
+
+ function getNoteTemplateOrderPrice() {
+    let orderPrice = price[selectedPrice]
+
+    return `<div class="Sum">
+                <div class="deliveryPrice">
+                    <p>Lieferkosten:</p><p>5,00 €</p>
+                </div>
+                <div class="deliveryPrice">
+                    <p class="bold">Gesamtbetrag:</p><p>${orderPrice}</p>
+                </div>
+            </div>`;
  }
  
- function addOne(index) {
-    cart[index].amount++;
-    saveToLocalStorage();
-    renderMyOrder();
- }
