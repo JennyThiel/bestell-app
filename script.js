@@ -64,7 +64,9 @@ function renderMySum() {
    let priceContentRef = document.getElementById('MySum');
    priceContentRef.innerHTML = "";
 
-
+   for (let indexPrice = 0; indexPrice < array.length; indexPrice++) {
+      priceContentRef.innerHTML += getNoteTemplateOrderPrice(indexPrice);
+   }
 }
 
 function addToDrinksCart(index) {
