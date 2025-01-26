@@ -107,6 +107,13 @@
     margin: 8px;
 }
 
+.sum {
+    padding-left: 16px;
+    width: 360px;
+    border: #bfbdbd solid .5px;
+    margin: 8px;
+}
+
 .orderRow {
     display: flex;
     flex-direction: row;
