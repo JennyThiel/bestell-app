@@ -39,6 +39,8 @@ function renderMySum() {
    for (let indexPrice = 0; indexPrice < array.length; indexPrice++) {
       priceContentRef.innerHTML += getNoteTemplateOrderPrice(indexPrice);
    }
+   saveToLocalStorage();
+   renderMySum();
 }
 
 function addToCart(index) {
