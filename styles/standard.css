@@ -39,3 +39,11 @@ h1 {
 h2 {
     text-align: center;
 }
+
+.star {
+    margin-left: 20px;
+}
+
+.myStar {
+    width: 20px;
+}
