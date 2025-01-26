@@ -32,34 +32,6 @@ function renderMyOrder() {
    }
 }
 
-function addToCart(index) {
-   let sellectedDish = myMenu[index];
-
-   cart.push({
-      courts: sellectedDish.courts,
-      with: sellectedDish.with,
-      price: sellectedDish.price,
-      amount: 1,
-   });
-
-   saveToLocalStorage();
-   renderMyOrder();
-}
-
-function addToDessertCart(index) {
-   let sellectedDishDessert = myDessert[index];
-
-   cart.push({
-      courts: sellectedDishDessert.courts,
-      with: sellectedDishDessert.with,
-      price: sellectedDishDessert.price,
-      amount: 1,
-   });
-
-   saveToLocalStorage();
-   renderMyOrder();
-}
-
 function renderMySum() {
    let priceContentRef = document.getElementById('MySum');
    priceContentRef.innerHTML = "";
@@ -69,27 +41,55 @@ function renderMySum() {
    }
 }
 
+function addToCart(index) {
+   let sellectedDish = myMenu[index];
+   let existingDish = cart.find(item => item.courts === sellectedDish.courts);
+   if (existingDish) { existingDish.amount += 1;
+   } else { cart.push({
+      courts: sellectedDish.courts,
+      with: sellectedDish.with,
+      price: sellectedDish.price,
+      amount: 1,
+      });
+   }
+   saveToLocalStorage();
+   renderMyOrder();
+}
+
+function addToDessertCart(index) {
+   let sellectedDishDessert = myDessert[index];
+   let existingDishDessert = cart.find(item => item.courts === sellectedDishDessert.courts);
+   if (existingDishDessert) { existingDishDessert.amount += 1;
+   } else { cart.push({
+      courts: sellectedDishDessert.courts,
+      with: sellectedDishDessert.with,
+      price: sellectedDishDessert.price,
+      amount: 1,
+      });
+   }
+   saveToLocalStorage();
+   renderMyOrder();
+}
+
 function addToDrinksCart(index) {
    let sellectedDishDrinks = myDrinks[index];
-
-   cart.push({
-      courts: sellectedDishDrinks.courts,
-      with: sellectedDishDrinks.with,
-      price: sellectedDishDrinks.price,
-      amount: 1,
-   });
-
+   let existingDishDrinks = cart.find(item => item.courts === sellectedDishDrinks.courts);
+   if (existingDishDrinks) { existingDishDrinks.amount += 1;
+   } else { cart.push({
+         courts: sellectedDishDrinks.courts,
+         with: sellectedDishDrinks.with,
+         price: sellectedDishDrinks.price,
+         amount: 1,
+      });
+   }
    saveToLocalStorage();
    renderMyOrder();
 }
 
 function deleteOne(index) {
-   if (cart[index].amount > 1) {
-      cart[index].amount--;
-   } else {
-      cart.splice(index, 1);
+   if (cart[index].amount > 1) { cart[index].amount--;
+   } else { cart.splice(index, 1);
    }
-
    saveToLocalStorage();
    renderMyOrder();
 }
@@ -111,7 +111,6 @@ function saveToLocalStorage() {
    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Lädt die Daten aus dem Local Storage oder erstellt leere Arrays
 function getFromLocalStorage() {
    myMenu = JSON.parse(localStorage.getItem("myMenu")) || [];
    myDessert = JSON.parse(localStorage.getItem("myDessert")) || [];
