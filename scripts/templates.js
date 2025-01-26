@@ -61,17 +61,31 @@ function getNoteTemplateOrderCart(indexMyCart) {
             </div>`;
  }
 
-function getNoteTemplateOrderPrice(indexPrice) {
-    let orderPrice = price[indexPrice]
+function renderMySum() {
+    let priceContentRef = document.getElementById('mySum');
+    priceContentRef.innerHTML = "";
 
-    return `<div class="Sum">
-                <div class="deliveryPrice">
-                    <p>Lieferkosten:</p>
-                    <p>5,00 €</p>
-                </div>
-                <div class="deliveryPrice">
-                    <p class="bold">Gesamtbetrag:</p>
-                    <p class="bold">${orderPrice + selectedCart.amount.toFixed(2)} €</p>
-                </div>
+    if (cart.length === 0) {
+        priceContentRef.innerHTML = `
+            <div class="sum">
+                <p>Warenkorb ist leer.</p>
             </div>`;
+        return;
+    }
+
+    let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
+    let deliveryCost = 5.00;
+
+    priceContentRef.innerHTML = `
+        <div class="sum">
+            <div class="deliveryPrice">
+                <p>Lieferkosten:</p>
+                <p>${deliveryCost.toFixed(2)} €</p>
+            </div>
+            <div class="deliveryPrice">
+                <p class="bold">Gesamtbetrag:</p>
+                <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
+            </div>
+        </div>`;
+    saveToLocalStorage();
 }
