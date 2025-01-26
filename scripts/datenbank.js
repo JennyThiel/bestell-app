@@ -80,3 +80,4 @@ let myMenu = [
  ];
 
 let cart = [];
+let price = [];
