@@ -61,7 +61,7 @@ function getNoteTemplateOrderCart(indexMyCart) {
             </div>`;
  }
 
- function getNoteTemplateOrderPrice(indexPrice) {
+function getNoteTemplateOrderPrice(indexPrice) {
     let orderPrice = price[indexPrice]
 
     return `<div class="Sum">
@@ -74,5 +74,4 @@ function getNoteTemplateOrderCart(indexMyCart) {
                     <p class="bold">${orderPrice + selectedCart.amount.toFixed(2)} €</p>
                 </div>
             </div>`;
- }
- 
+}
