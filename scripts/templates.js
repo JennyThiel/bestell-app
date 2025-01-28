@@ -47,7 +47,7 @@ function getNoteTemplateDrinks(indexMyDrinks) {
 function getNoteTemplateOrderCart(indexMyCart) {
     let selectedCart = cart[indexMyCart];
  
-    return `<div class="cart">
+    return `<div class="sum">
                 <h3>${selectedCart.courts}</h3>
                 <p>${selectedCart.with}</p>
                 <div class="orderRow">
@@ -56,7 +56,7 @@ function getNoteTemplateOrderCart(indexMyCart) {
                         <span>${selectedCart.amount}</span>
                         <button onclick="addOne(${indexMyCart})" class="plusBtn">+</button>
                     </div>
-                    <p class="bold r16">${(selectedCart.price * selectedCart.amount).toFixed(2)} €</p>
+                    <p class="bold">${(selectedCart.price * selectedCart.amount).toFixed(2)} €</p>
                 </div>    
             </div>`;
  }
@@ -66,8 +66,8 @@ function renderMySum() {
     priceContentRef.innerHTML = "";
 
     if (cart.length === 0) {
-        priceContentRef.innerHTML = `
-            <div class="sum">
+        priceContentRef.innerHTML = 
+            `<div class="sum">
                 <p>Warenkorb ist leer.</p>
             </div>`;
         return;
@@ -76,8 +76,8 @@ function renderMySum() {
     let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
     let deliveryCost = 5.00;
 
-    priceContentRef.innerHTML = `
-        <div class="sum">
+    priceContentRef.innerHTML = 
+        `<div class="sum">
             <div class="deliveryPrice">
                 <p>Lieferkosten:</p>
                 <p>${deliveryCost.toFixed(2)} €</p>
