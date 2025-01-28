@@ -23,7 +23,6 @@ function getNoteTemplateDessert(indexMyDessert) {
                     <p>${dessert.price.toFixed(2)} €</p>
                 </div>
                 <button onclick="addToDessertCart(${indexMyDessert})" id="dessertBtn-${indexMyDessert}" class="orderBtn">
-
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
@@ -59,7 +58,24 @@ function getNoteTemplateOrderCart(indexMyCart) {
                     <p class="bold">${(selectedCart.price * selectedCart.amount).toFixed(2)} €</p>
                 </div>    
             </div>`;
- }
+}
+
+function renderMyOrder() {
+    let cartContentRef = document.getElementById('orderbasket');
+    cartContentRef.innerHTML = "";
+ 
+    if (cart.length === 0) {
+       cartContentRef.innerHTML = 
+          `<div class="basket">
+             <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+          </div>`;
+       return;
+    }
+ 
+    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
+       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
+    }
+}
 
 function renderMySum() {
     let priceContentRef = document.getElementById('mySum');
@@ -67,8 +83,8 @@ function renderMySum() {
 
     if (cart.length === 0) {
         priceContentRef.innerHTML = 
-            `<div class="sum">
-                <p>Warenkorb ist leer.</p>
+            `<div class="mySum">
+                <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
             </div>`;
         return;
     }
@@ -77,7 +93,7 @@ function renderMySum() {
     let deliveryCost = 5.00;
 
     priceContentRef.innerHTML = 
-        `<div class="sum">
+        `<div class="mySum">
             <div class="deliveryPrice">
                 <p>Lieferkosten:</p>
                 <p>${deliveryCost.toFixed(2)} €</p>
@@ -85,6 +101,9 @@ function renderMySum() {
             <div class="deliveryPrice">
                 <p class="bold">Gesamtbetrag:</p>
                 <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
+            </div>
+            <div class="myCartBtn">
+                <button class="cartBtn" onclick="addOrder()">Bestellen</button>
             </div>
         </div>`;
     saveToLocalStorage();

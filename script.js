@@ -36,23 +36,7 @@ function renderMyDessert() {
    }
 }
 
-function renderMyOrder() {
-   let cartContentRef = document.getElementById('orderbasket');
-   cartContentRef.innerHTML = "";
 
-   if (cart.length === 0) {
-      cartContentRef.innerHTML = `
-         <div class="basket">
-            <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-            <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-         </div>`;
-      return;
-   }
-
-   for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
-   }
-}
 
 function addToCart(index) {
    let sellectedDish = myMenu[index];
@@ -107,7 +91,6 @@ function deleteOne(index) {
       cart[index].amount--;
    } else { cart.splice(index, 1);
    }
-
    saveToLocalStorage();
    renderMyOrder();
    renderMySum();
@@ -118,4 +101,9 @@ function addOne(index) {
    saveToLocalStorage();
    renderMyOrder();
    renderMySum();
+}
+
+function sendOrder(event) {
+   event
+
 }
