@@ -36,22 +36,6 @@ function renderMyDessert() {
    }
 }
 
-function renderMyOrder() {
-   let cartContentRef = document.getElementById('orderbasket');
-   cartContentRef.innerHTML = "";
-
-   for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
-   } if (cart.length === 0) {
-      cartContentRef.innerHTML = 
-         `<div class="basket">
-            <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-            <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-         </div>`;
-      return;
-   }
-}
-
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
    priceContentRef.innerHTML = "";
@@ -152,5 +136,6 @@ function addOne(index) {
 }
 
 function text() {
+   // Warenkorb muss gelöscht werden
    return "Testbestellung war erfolgreich!";
  }
