@@ -16,6 +16,13 @@ nav {
     padding-left: 16px;
 }
 
+svg {
+    fill: white;
+    height: 32px;
+    width: 32px;
+    margin-left: 64%;
+}
+
 footer {
     background-color: #ff8000;
 }
