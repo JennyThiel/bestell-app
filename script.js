@@ -36,6 +36,22 @@ function renderMyDessert() {
    }
 }
 
+function renderMyOrder() {
+   let cartContentRef = document.getElementById('orderbasket');
+   cartContentRef.innerHTML = "";
+
+   for (let indexCart = 0; indexCart < cart.length; indexCart++) {
+      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
+   } if (cart.length === 0) {
+      cartContentRef.innerHTML = 
+         `<div class="basket">
+            <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+            <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
+         </div>`;
+      return;
+  } 
+}
+
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
    priceContentRef.innerHTML = "";
@@ -62,7 +78,7 @@ function renderMySum() {
                <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
            </div>
            <div class="myCartBtn">
-           <button class="cartBtn" onclick="document.getElementById('addOrder').innerHTML = text()">Bestellen</button>
+           <button class="cartBtn" onclick="document.getElementById('addOrder').innerHTML = remove()">Bestellen</button>
            <p id="addOrder"></p>
            <!-- <button class="cartBtn" onclick="addOrder()">Bestellen</button> -->
            </div>
@@ -135,7 +151,11 @@ function addOne(index) {
    renderMySum();
 }
 
-function text() {
-   // Warenkorb muss gelöscht werden
+function remove() {
+  
    return "Testbestellung war erfolgreich!";
- }
+}
+
+function openOverlay() {
+   
+}
