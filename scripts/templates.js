@@ -45,7 +45,7 @@ function getNoteTemplateDrinks(indexMyDrinks) {
 
 function getNoteTemplateOrderCart(indexMyCart) {
     let selectedCart = cart[indexMyCart];
- 
+
     return `<div class="sum">
                 <h3>${selectedCart.courts}</h3>
                 <p>${selectedCart.with}</p>
@@ -59,19 +59,3 @@ function getNoteTemplateOrderCart(indexMyCart) {
                 </div>    
             </div>`;
 }
-
-function renderMyOrder() {
-    let cartContentRef = document.getElementById('orderbasket');
-    cartContentRef.innerHTML = "";
- 
-    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
-    } if (cart.length === 0) {
-       cartContentRef.innerHTML = 
-          `<div class="basket">
-             <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-             <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-          </div>`;
-       return;
-    }
- }
