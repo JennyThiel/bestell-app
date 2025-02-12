@@ -59,6 +59,7 @@
 
 .food {
     margin: 16px;
+    margin-right: 16px;
     padding-left: 16px;
     border: 1.5px solid;
     border-color: #a6a3a3;
@@ -160,101 +161,4 @@
     color: #ffffff;
     font-weight: bold;
     font-size: 20px;
-}
-
-.impressum,
-.datenschutz,
-.agb {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.none {
-    text-decoration: none;
-    color: #ff8000;
-
-}
-
-.none:hover {
-    cursor: pointer;
-    font-size: 18px;
-}
-
-@media(max-width: 1690px) {
-    body {
-        margin: 0;
-    }
-
-    nav {
-        margin: 0;
-    }
-
-    .DiningCat {
-        max-width: 100vw;
-    }
-
-    .sum,
-    .mySum {
-        width: 280px;
-    }
-
-    footer {
-        margin: 0;
-    }
-}
-
-@media(max-width: 1384px) {
-    main {
-        width: 100%;
-    }
-
-    .sum,
-    .mySum {
-        width: 240px;
-    }
-
-    .cartBtn {
-        font-size: 16px;
-        padding: 12px;
-    }
-}
-
-@media(max-width: 1230px) {
-
-    .sum,
-    .mySum {
-        width: 200px;
-    }
-
-    h3 {
-        font-size: 16px;
-    }
-
-    .cartBtn {
-        font-size: 16px;
-        padding: 12px;
-    }
-}
-
-@media(max-width: 1076px) {
-
-    .sum,
-    .mySum {
-        width: 180px;
-    }
-
-    .diningCat {
-        width: 70%;
-    }
-
-    .cartBtn {
-        padding: 8px;
-    }
 }
