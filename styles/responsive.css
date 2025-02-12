@@ -1,0 +1,117 @@
+@media(max-width: 1690px) {
+    .DiningCat {
+        max-width: 100vw;
+    }
+
+    .sum,
+    .mySum {
+        width: 280px;
+    }
+}
+
+@media(max-width: 1384px) {
+    .sum,
+    .mySum {
+        width: 240px;
+    }
+
+    .cartBtn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media(max-width: 1230px) {
+    .sum,
+    .mySum {
+        width: 200px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .cartBtn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media(max-width: 1076px) {
+    .sum,
+    .mySum {
+        width: 180px;
+    }
+
+    .diningCat {
+        width: 100vw;
+    }
+
+    .cartBtn {
+        padding: 8px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .order {
+        display: none;
+    }
+
+    .aot {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        box-shadow: 0;
+        -webkit-box-shadow: 0;
+        -moz-box-shadow: 0;
+    }
+
+    .sticky {
+        width: 100%;
+        box-shadow: 0;
+        -webkit-box-shadow: 0;
+        -moz-box-shadow: 0;
+    }
+
+    .companyLogo {
+        /* height: 40px;
+        width: auto;
+        top: 320px;
+        left: 80px; */
+        display: none;
+    }
+
+    .foodImg {
+        display: none;
+        width: 100vw;
+    }
+}
+
+@media(max-width: 560px) {
+    h1 {
+        margin-left: 30px;
+    }
+
+    .myBtn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 4px;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .socialmedia {
+        padding-top: 12px;
+    }
+
+    .links {
+        padding-bottom: 12px;
+    }
+}
