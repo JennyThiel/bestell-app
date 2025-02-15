@@ -162,3 +162,17 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.responsiveOrderBtn {
+    width: 98%;
+    padding: 16px;
+    background-color: #ff8000;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border: 0;
+    border-radius: 2rem;
+    margin-right: 16px;
+    padding-left: 16px;
+    margin: 16px;
+}

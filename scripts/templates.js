@@ -59,3 +59,16 @@ function getNoteTemplateOrderCart(indexMyCart) {
                 </div>    
             </div>`;
 }
+
+function getNoteTemplateRespBtn() {
+    let respBtn 
+
+    return  ` <div>
+                    <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
+                        <img class="shoppingCartIcon" src="assets/icons/warenkorb.png" alt="orderbasket">
+                        <p class="bold">Klicke hier für Bestellung</p>
+                        <p class="bold">Gesamtpreis: ${(selectedCart.price * selectedCart.amount).toFixed(2)}</p>
+                    </button>
+                </div>`
+
+}

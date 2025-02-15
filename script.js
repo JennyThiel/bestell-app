@@ -156,6 +156,11 @@ function remove() {
    return "Testbestellung war erfolgreich!";
 }
 
-function openOverlay() {
-   
+function showOrderButton() {
+
+}
+
+function toggleOrderButton(){
+   document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
+
 }
