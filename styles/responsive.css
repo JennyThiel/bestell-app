@@ -61,14 +61,8 @@
         display: none;
     }
 
-    main {
-        width: 100%;
-        box-shadow: 0;
-        -webkit-box-shadow: 0;
-        -moz-box-shadow: 0;
-    }
-
-    .sticky {
+    .sticky,
+    .main {
         width: 100%;
         box-shadow: 0;
         -webkit-box-shadow: 0;
@@ -84,7 +78,6 @@
     }
 
     .foodImg {
-        display: none;
         width: 100vw;
     }
 }
