@@ -160,17 +160,14 @@ function addOne(index) {
    renderMySum();
 }
 
-function remove(cart) {
+function remove() {
    cart.splice();
-   renderMyOrder();
 
    return "Testbestellung war erfolgreich!";
    
 }
 
-
-
 function toggleOrderButton(){
    document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
-   
+
 }
