@@ -61,7 +61,7 @@ function getNoteTemplateOrderCart(indexMyCart) {
 }
 
 function getNoteTemplateRespBtn() {
-    let respBtn 
+    let respBtn = contentRespBtn[indexRespBtn];
 
     return  ` <div>
                     <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
