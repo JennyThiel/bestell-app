@@ -86,6 +86,15 @@ function renderMySum() {
    saveToLocalStorage();
 }
 
+function responsiveOrderBtn() {
+   let contentRespBtn = document.getElementById('respBtn')
+
+   for (let indexRespBtn = 0; indexRespBtn < array.length; indexRespBtn++) {
+      dessertContentRef.innerHTML += getNoteTemplateRespBtn(indexRespBtn);
+      
+   }
+}
+
 function addToCart(index) {
    let sellectedDish = myMenu[index];
    let existingDish = cart.find(item => item.courts === sellectedDish.courts);
@@ -151,14 +160,15 @@ function addOne(index) {
    renderMySum();
 }
 
-function remove() {
-   
+function remove(cart) {
+   cart.splice();
+   renderMyOrder();
+
    return "Testbestellung war erfolgreich!";
+   
 }
 
-function showOrderButton() {
 
-}
 
 function toggleOrderButton(){
    document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')

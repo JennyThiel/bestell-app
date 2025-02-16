@@ -80,6 +80,10 @@
     .foodImg {
         width: 100vw;
     }
+
+    .responsiveOrderBtn {
+        display: block;
+    }
 }
 
 @media(max-width: 560px) {
