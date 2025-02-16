@@ -172,5 +172,5 @@ function remove(cart) {
 
 function toggleOrderButton(){
    document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
-
+   
 }
