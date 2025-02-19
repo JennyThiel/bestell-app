@@ -163,10 +163,10 @@ function remove() {
    cart = [];
    price = [];
    renderMyOrder()
-   let element = document.getElementById("addOrder")
-   element.classList.remove
-   element.classList.add
-
+   let emptyBtn = document.getElementById("addOrder")
+   let emptySum = document.getElementById("mySum")
+   emptyBtn.style.display = "flex"
+   emptySum.style.display = "flex"
 
 
    
