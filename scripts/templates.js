@@ -60,15 +60,15 @@ function getNoteTemplateOrderCart(indexMyCart) {
             </div>`;
 }
 
-function getNoteTemplateRespBtn() {
-    let respBtn = contentRespBtn[indexRespBtn];
+// function getNoteTemplateRespBtn() {
+//     let respBtn = respBtnContentRef[indexRespBtn];
 
-    return  ` <div>
-                    <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
-                        <img class="shoppingCartIcon" src="assets/icons/warenkorb.png" alt="orderbasket">
-                        <p class="bold">Klicke hier für Bestellung</p>
-                        <p class="bold">Gesamtpreis: ${(selectedCart.price * selectedCart.amount).toFixed(2)}</p>
-                    </button>
-                </div>`
+//     return  ` <div>
+//                     <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
+//                         <img class="shoppingCartIcon" src="assets/icons/warenkorb.png" alt="orderbasket">
+//                         <p class="bold">Klicke hier für Bestellung</p>
+//                         <p class="bold">Gesamtpreis: ${(selectedCart.price * selectedCart.amount).toFixed(2)}</p>
+//                     </button>
+//                 </div>`
 
-}
+// }

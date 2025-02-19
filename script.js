@@ -79,18 +79,17 @@ function renderMySum() {
          </div>
          <div class="myCartBtn">
             <button class="cartBtn" onclick="remove()">Bestellen</button>
-            <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich</p>
+            <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
          </div>
       </div>`;
    saveToLocalStorage();
 }
 
 function responsiveOrderBtn() {
-   let contentRespBtn = document.getElementById('respBtn')
+   let respBtnContentRef = document.getElementById('respBtn')
 
    for (let indexRespBtn = 0; indexRespBtn < array.length; indexRespBtn++) {
-      dessertContentRef.innerHTML += getNoteTemplateRespBtn(indexRespBtn);
-      
+      respBtnContentRef.innerHTML += getNoteTemplateRespBtn(indexRespBtn); 
    }
 }
 
@@ -162,14 +161,15 @@ function addOne(index) {
 function remove() {
    cart = [];
    price = [];
-   renderMyOrder()
-   let emptyBtn = document.getElementById("addOrder")
-   let emptySum = document.getElementById("mySum")
-   emptyBtn.style.display = "flex"
-   emptySum.style.display = "flex"
+   renderMyOrder();
+   renderMySum();
+   let emptyBtn = document.getElementById("addOrder");
+   // let emptySum = document.getElementById("mySum");
+   // emptyBtn.style.display = "flex";
+   // emptySum.style.display = "flex";
+   element.classList.remove
+   element.claslist.add("addOrderBtn");
 
-
-   
 }
 
 function toggleOrderButton(){
