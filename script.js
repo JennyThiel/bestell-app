@@ -68,21 +68,20 @@ function renderMySum() {
    let deliveryCost = 5.00;
 
    priceContentRef.innerHTML = 
-       `<div class="mySum">
-           <div class="deliveryPrice">
-               <p>Lieferkosten:</p>
-               <p>${deliveryCost.toFixed(2)} €</p>
-           </div>
-           <div class="deliveryPrice">
-               <p class="bold">Gesamtbetrag:</p>
-               <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
-           </div>
-           <div class="myCartBtn">
-           <button class="cartBtn" onclick="document.getElementById('addOrder').innerHTML = remove()">Bestellen</button>
-           <p id="addOrder"></p>
-           <!-- <button class="cartBtn" onclick="addOrder()">Bestellen</button> -->
-           </div>
-       </div>`;
+      `<div class="mySum">
+         <div class="deliveryPrice">
+            <p>Lieferkosten:</p>
+            <p>${deliveryCost.toFixed(2)} €</p>
+         </div>
+         <div class="deliveryPrice">
+            <p class="bold">Gesamtbetrag:</p>
+            <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
+         </div>
+         <div class="myCartBtn">
+            <button class="cartBtn" onclick="remove()">Bestellen</button>
+            <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich</p>
+         </div>
+      </div>`;
    saveToLocalStorage();
 }
 
@@ -161,9 +160,15 @@ function addOne(index) {
 }
 
 function remove() {
-   cart.splice();
+   cart = [];
+   price = [];
+   renderMyOrder()
+   let element = document.getElementById("addOrder")
+   element.classList.remove
+   element.classList.add
 
-   return "Testbestellung war erfolgreich!";
+
+
    
 }
 

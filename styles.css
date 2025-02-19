@@ -163,6 +163,10 @@
     font-size: 20px;
 }
 
+.addOrderBtn{
+    display: none;
+}
+
 .responsiveOrderBtn {
     display: none;
     width: 98%;
