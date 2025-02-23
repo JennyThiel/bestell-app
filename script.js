@@ -172,7 +172,15 @@ function remove() {
 
 }
 
-function toggleOrderButton(){
-   document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
+document.getElementById("openOverlay").addEventListener("click", function() {
+   document.getElementById("overlay").style.display = "flex";
+});
 
-}
+document.getElementById("closeOverlay").addEventListener("click", function() {
+   document.getElementById("overlay").style.display = "none";
+});
+
+// function toggleOrderButton(){
+//    document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
+
+// }

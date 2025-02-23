@@ -100,6 +100,10 @@
     }
 }
 
+/* .overlay {
+    display: block;
+} */
+
 @media(max-width: 560px) {
     h1 {
         margin-left: 30px;

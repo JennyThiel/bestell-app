@@ -63,12 +63,25 @@
                         <h2>Getränke</h2>
                     </div>
                     <div class="responsiveOrderDiv">
-                        <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
+                        <button id="openOverlay" class="responsiveOrderBtn" onclick=showOverlay()>
                             <img class="shoppingCartIcon" src="assets/icons/warenkorb.png" alt="orderbasket">
                             <p class="bold">Klicke hier für Bestellung</p>
                         </button>
                     </div>
                 </div>
+                <!-- overlay -->
+                <div id="overlay" class="overlay">
+                    <div class="overlayContent">
+                        <h2>Warenkorb</h2>
+                        <div id="orderbasketOverlay">
+                            
+                        </div>
+                        <div id="mySumOverlay">
+
+                        </div>
+                    </div>
+                </div> 
+          
             </section>
             <!-- Orderbasket -->
             <section class="order">
@@ -80,6 +93,7 @@
 
                 </div>
             </section>
+        </section>
         </main>
         <footer>
             <div class="footer">
