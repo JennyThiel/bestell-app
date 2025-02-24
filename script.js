@@ -36,54 +36,90 @@ function renderMyDessert() {
    }
 }
 
+// function renderMyOrder() {
+//    let cartContentRef = document.getElementById('orderbasket');
+//    cartContentRef.innerHTML = "";
+
+//    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
+//       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
+//    } if (cart.length === 0) {
+//       cartContentRef.innerHTML = 
+//          `<div class="basket">
+//             <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+//             <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
+//          </div>`;
+//       return;
+//   } 
+// }
+
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
-   cartContentRef.innerHTML = "";
+   let cartOverlayRef = document.getElementById('orderbasketOverlay');
+   cartContentRef.innerHTML = cartOverlayRef.innerHTML = "";
+   
+   if (!cart.length) return renderEmptyCart(cartContentRef, cartOverlayRef);
+   
+   cart.forEach((_, index) => {
+       let itemHTML = getNoteTemplateOrderCart(index);
+       cartContentRef.innerHTML += itemHTML;
+       cartOverlayRef.innerHTML += itemHTML;
+   });
 
-   for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-      cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
-   } if (cart.length === 0) {
-      cartContentRef.innerHTML = 
-         `<div class="basket">
-            <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-            <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-         </div>`;
-      return;
-  } 
+   renderCartTotal();
 }
+
+function showOrderMessage() {
+   let orderMessage = document.getElementById("addOrder");
+   if (orderMessage) {
+       orderMessage.style.display = "block"; // ✅ Erfolgsmeldung anzeigen
+       setTimeout(() => orderMessage.style.display = "none", 3000); // ⏳ Nach 3 Sek. ausblenden
+   }
+}
+
+
+function placeOrder() {
+   cart = []; 
+   saveToLocalStorage(); 
+   renderMyOrder(); 
+   renderCartTotal(); 
+   showOrderMessage(); // ✅ Erfolgsmeldung anzeigen
+}
+
+showOrderMessage();
+
+
+function renderEmptyCart(cartRef, overlayRef) {
+   let emptyHTML = `
+       <div class="basket">
+           <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+           <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
+       </div>`;
+   cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
+}
+
+function renderCartTotal() {
+   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
+   let deliveryCost = 5.00, grandTotal = total + deliveryCost;
+   let totalHTML = `
+       <div class="mySum">
+           <div class="deliveryPrice"><p>Lieferkosten:</p><p>${deliveryCost.toFixed(2)} €</p></div>
+           <div class="deliveryPrice"><p class="bold">Gesamtbetrag:</p><p class="bold">${grandTotal.toFixed(2)} €</p></div>
+           <div class="myCartBtn"><button class="cartBtn" onclick="placeOrder()">Bestellen</button></div>
+       </div>`;
+   document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
+}
+
 
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
-   priceContentRef.innerHTML = "";
-
-   if (cart.length === 0) {
-       priceContentRef.innerHTML = 
-           `<div class="mySum">
-               
-           </div>`;
-       return;
-   }
-
    let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
-   let deliveryCost = 5.00;
+   let deliveryCost = cart.length ? 5.00 : 0;
 
-   priceContentRef.innerHTML = 
-      `<div class="mySum">
-         <div class="deliveryPrice">
-            <p>Lieferkosten:</p>
-            <p>${deliveryCost.toFixed(2)} €</p>
-         </div>
-         <div class="deliveryPrice">
-            <p class="bold">Gesamtbetrag:</p>
-            <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
-         </div>
-         <div class="myCartBtn">
-            <button class="cartBtn" onclick="remove()">Bestellen</button>
-            <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
-         </div>
-      </div>`;
+   priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
    saveToLocalStorage();
 }
+
+
 
 function responsiveOrderBtn() {
    let respBtnContentRef = document.getElementById('respBtn')
@@ -160,27 +196,31 @@ function addOne(index) {
 
 function remove() {
    cart = [];
-   price = [];
+   saveToLocalStorage();
    renderMyOrder();
    renderMySum();
-   let emptyBtn = document.getElementById("addOrder");
-   // let emptySum = document.getElementById("mySum");
-   // emptyBtn.style.display = "flex";
-   // emptySum.style.display = "flex";
-   element.classList.remove
-   element.claslist.add("addOrderBtn");
 
+   let orderMessage = document.getElementById("addOrder") || document.createElement("p");
+   orderMessage.id = "addOrder";
+   orderMessage.className = "addOrderBtn";
+   orderMessage.textContent = "Testbestellung war Erfolgreich!";
+   orderMessage.style.display = "flex";
+
+   if (!document.getElementById("addOrder")) {
+      document.getElementById("mySum")?.appendChild(orderMessage);
+   }
 }
 
-document.getElementById("openOverlay").addEventListener("click", function() {
-   document.getElementById("overlay").style.display = "flex";
+document.addEventListener("DOMContentLoaded", function () {
+   document.getElementById("openOverlay").addEventListener("click", showOverlay);
+   document.getElementById("closeOverlay")?.addEventListener("click", hideOverlay);
 });
 
-document.getElementById("closeOverlay").addEventListener("click", function() {
+function showOverlay() {
+   document.getElementById("overlay").style.display = "flex"; 
+}
+
+function hideOverlay() {
    document.getElementById("overlay").style.display = "none";
-});
+}
 
-// function toggleOrderButton(){
-//    document.getElementById("respBtn").classList.toggle('responsiveOrderBtn')
-
-// }

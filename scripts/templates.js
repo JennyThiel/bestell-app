@@ -60,15 +60,17 @@ function getNoteTemplateOrderCart(indexMyCart) {
             </div>`;
 }
 
-// function getNoteTemplateRespBtn() {
-//     let respBtn = respBtnContentRef[indexRespBtn];
-
-//     return  ` <div>
-//                     <button id="respBtn" class="responsiveOrderBtn" onclick=showOverlay()>
-//                         <img class="shoppingCartIcon" src="assets/icons/warenkorb.png" alt="orderbasket">
-//                         <p class="bold">Klicke hier für Bestellung</p>
-//                         <p class="bold">Gesamtpreis: ${(selectedCart.price * selectedCart.amount).toFixed(2)}</p>
-//                     </button>
-//                 </div>`
-
-// }
+function getSumTemplate(total, deliveryCost) {
+    return `
+       <div class="mySum">
+          ${total > 0 ? `
+             <div class="deliveryPrice"><p>Lieferkosten:</p><p>${deliveryCost.toFixed(2)} €</p></div>
+             <div class="deliveryPrice"><p class="bold">Gesamtbetrag:</p><p class="bold">${(total + deliveryCost).toFixed(2)} €</p></div>
+             <div class="myCartBtn">
+                <button class="cartBtn" onclick="remove()">Bestellen</button>
+                <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
+             </div>` 
+          : ""}
+       </div>`;
+ }
+ 
