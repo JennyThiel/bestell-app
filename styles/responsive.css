@@ -71,6 +71,11 @@
         width: 100vw;
     }
 
+    .responsiveOrderP {
+        padding: 16px;
+        color: black;
+    }
+
     .responsiveOrderDiv {
         width: 100vw;
         display: flex;
