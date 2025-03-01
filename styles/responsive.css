@@ -84,7 +84,7 @@
         justify-content: center;
         text-align: center;
         border: 0;
-        border-radius: 2rem;
+        border-radius: 1rem;
         margin-bottom: 16px;
         cursor: pointer;
     }
@@ -112,7 +112,6 @@
         height: 50vh;
         justify-content: end;
         border-radius: 8px;
-        text-align: center;
     }
 
     .sum,
@@ -125,7 +124,7 @@
         justify-content: end;
         margin-top: 4px;
     }
-    
+
     .closeBtn {
         background-color: red;
         color: white;
@@ -135,7 +134,7 @@
         cursor: pointer;
         border-radius: 5px;
     }
-    
+
     .closeBtn:hover {
         background-color: darkred;
     }
@@ -165,5 +164,11 @@
 
     .links {
         padding-bottom: 12px;
+    }
+
+    .overlayContent {
+        padding: 12px;
+        width: 80vw;
+        height: 72vh;
     }
 }
