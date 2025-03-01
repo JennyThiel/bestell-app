@@ -36,22 +36,6 @@ function renderMyDessert() {
    }
 }
 
-// function renderMyOrder() {
-//    let cartContentRef = document.getElementById('orderbasket');
-//    cartContentRef.innerHTML = "";
-
-//    for (let indexCart = 0; indexCart < cart.length; indexCart++) {
-//       cartContentRef.innerHTML += getNoteTemplateOrderCart(indexCart);
-//    } if (cart.length === 0) {
-//       cartContentRef.innerHTML = 
-//          `<div class="basket">
-//             <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-//             <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-//          </div>`;
-//       return;
-//   } 
-// }
-
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
    let cartOverlayRef = document.getElementById('orderbasketOverlay');
@@ -71,18 +55,17 @@ function renderMyOrder() {
 function showOrderMessage() {
    let orderMessage = document.getElementById("addOrder");
    if (orderMessage) {
-       orderMessage.style.display = "block"; // ✅ Erfolgsmeldung anzeigen
+       orderMessage.style.display = "block";
        setTimeout(() => orderMessage.style.display = "none", 3000); // ⏳ Nach 3 Sek. ausblenden
    }
 }
-
 
 function placeOrder() {
    cart = []; 
    saveToLocalStorage(); 
    renderMyOrder(); 
    renderCartTotal(); 
-   showOrderMessage(); // ✅ Erfolgsmeldung anzeigen
+   showOrderMessage();
 }
 
 showOrderMessage();
@@ -223,4 +206,3 @@ function showOverlay() {
 function hideOverlay() {
    document.getElementById("overlay").style.display = "none";
 }
-
