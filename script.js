@@ -56,7 +56,7 @@ function showOrderMessage() {
    let orderMessage = document.getElementById("addOrder");
    if (orderMessage) {
        orderMessage.style.display = "block";
-       setTimeout(() => orderMessage.style.display = "none", 3000); // ⏳ Nach 3 Sek. ausblenden
+       setTimeout(() => orderMessage.style.display = "none", 3000);
    }
 }
 
@@ -83,12 +83,19 @@ function renderEmptyCart(cartRef, overlayRef) {
 function renderCartTotal() {
    let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
    let deliveryCost = 5.00, grandTotal = total + deliveryCost;
-   let totalHTML = `
-       <div class="mySum">
-           <div class="deliveryPrice"><p>Lieferkosten:</p><p>${deliveryCost.toFixed(2)} €</p></div>
-           <div class="deliveryPrice"><p class="bold">Gesamtbetrag:</p><p class="bold">${grandTotal.toFixed(2)} €</p></div>
-           <div class="myCartBtn"><button class="cartBtn" onclick="placeOrder()">Bestellen</button></div>
-       </div>`;
+   let totalHTML =   `<div class="mySum">
+                        <div class="deliveryPrice">
+                           <p>Lieferkosten:</p>
+                           <p>${deliveryCost.toFixed(2)} €</p>
+                        </div>
+                        <div class="deliveryPrice">
+                           <p class="bold">Gesamtbetrag:</p>
+                           <p class="bold">${grandTotal.toFixed(2)} €</p>
+                        </div>
+                        <div class="myCartBtn">
+                           <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
+                        </div>
+                     </div>`;
    document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
 }
 

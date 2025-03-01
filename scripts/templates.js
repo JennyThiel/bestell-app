@@ -61,16 +61,21 @@ function getNoteTemplateOrderCart(indexMyCart) {
 }
 
 function getSumTemplate(total, deliveryCost) {
-    return `
-       <div class="mySum">
-          ${total > 0 ? `
-             <div class="deliveryPrice"><p>Lieferkosten:</p><p>${deliveryCost.toFixed(2)} €</p></div>
-             <div class="deliveryPrice"><p class="bold">Gesamtbetrag:</p><p class="bold">${(total + deliveryCost).toFixed(2)} €</p></div>
-             <div class="myCartBtn">
-                <button class="cartBtn" onclick="remove()">Bestellen</button>
-                <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
-             </div>` 
-          : ""}
-       </div>`;
+    return `<div class="mySum">
+                ${total > 0 ? `
+                <div class="deliveryPrice">
+                    <p>Lieferkosten:</p>
+                    <p>${deliveryCost.toFixed(2)} €</p>
+                </div>
+                <div class="deliveryPrice">
+                    <p class="bold">Gesamtbetrag:</p>
+                    <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
+                </div>
+                <div class="myCartBtn">
+                    <button class="cartBtn" onclick="remove()">Bestellen</button>
+                    <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
+                </div>` 
+                : ""}
+            </div>`;
  }
  
