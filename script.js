@@ -102,14 +102,14 @@ function renderCartTotal() {
 
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
+   let priceContentRefOverlay = document.getElementById('mySumOverlay');
    let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
    let deliveryCost = cart.length ? 5.00 : 0;
 
    priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
+   priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
    saveToLocalStorage();
 }
-
-
 
 function responsiveOrderBtn() {
    let respBtnContentRef = document.getElementById('respBtn')
@@ -197,6 +197,23 @@ function remove() {
    orderMessage.style.display = "flex";
 
    if (!document.getElementById("addOrder")) {
+      document.getElementById("mySum")?.appendChild(orderMessage);
+   }
+}
+
+function removeOverlay() {
+   cart = [];
+   saveToLocalStorage();
+   renderMyOrder();
+   renderMySum();
+
+   let orderMessage = document.getElementById("addOrderOverlay") || document.createElement("p");
+   orderMessage.id = "addOrderOverlay";
+   orderMessage.className = "addOrderBtn";
+   orderMessage.textContent = "Testbestellung war Erfolgreich!";
+   orderMessage.style.display = "flex";
+
+   if (!document.getElementById("addOrderOverlay")) {
       document.getElementById("mySum")?.appendChild(orderMessage);
    }
 }

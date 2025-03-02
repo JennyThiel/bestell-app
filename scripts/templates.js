@@ -79,3 +79,4 @@ function getSumTemplate(total, deliveryCost) {
             </div>`;
  }
  
+ 
