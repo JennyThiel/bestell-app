@@ -99,7 +99,6 @@ function renderCartTotal() {
    document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
 }
 
-
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
    let priceContentRefOverlay = document.getElementById('mySumOverlay');
@@ -109,14 +108,6 @@ function renderMySum() {
    priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
    priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
    saveToLocalStorage();
-}
-
-function responsiveOrderBtn() {
-   let respBtnContentRef = document.getElementById('respBtn')
-
-   for (let indexRespBtn = 0; indexRespBtn < array.length; indexRespBtn++) {
-      respBtnContentRef.innerHTML += getNoteTemplateRespBtn(indexRespBtn); 
-   }
 }
 
 function addToCart(index) {
@@ -214,7 +205,7 @@ function removeOverlay() {
    orderMessage.style.display = "flex";
 
    if (!document.getElementById("addOrderOverlay")) {
-      document.getElementById("mySum")?.appendChild(orderMessage);
+      document.getElementById("mySumOverlay")?.appendChild(orderMessage);
    }
 }
 

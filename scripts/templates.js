@@ -72,11 +72,9 @@ function getSumTemplate(total, deliveryCost) {
                     <p class="bold">${(total + deliveryCost).toFixed(2)} €</p>
                 </div>
                 <div class="myCartBtn">
-                    <button class="cartBtn" onclick="remove()">Bestellen</button>
+                    <button class="cartBtn" onclick="remove()" onclick="removeOverlay()">Bestellen</button>
                     <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
                 </div>` 
                 : ""}
             </div>`;
  }
- 
- 
