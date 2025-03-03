@@ -56,7 +56,6 @@ function showOrderMessage() {
    let orderMessage = document.getElementById("addOrder");
    if (orderMessage) {
        orderMessage.style.display = "block";
-       setTimeout(() => orderMessage.style.display = "none", 3000);
    }
 }
 
@@ -70,13 +69,11 @@ function placeOrder() {
 
 showOrderMessage();
 
-
 function renderEmptyCart(cartRef, overlayRef) {
-   let emptyHTML = `
-       <div class="basket">
-           <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-           <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-       </div>`;
+   let emptyHTML =   `<div class="basket">
+                        <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+                        <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
+                     </div>`;
    cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
 }
 
@@ -94,6 +91,7 @@ function renderCartTotal() {
                         </div>
                         <div class="myCartBtn">
                            <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
+                           <p>Testbestellung war erfolgreich!</p>
                         </div>
                      </div>`;
    document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
