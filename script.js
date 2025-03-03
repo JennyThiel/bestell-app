@@ -44,9 +44,9 @@ function renderMyOrder() {
    if (!cart.length) return renderEmptyCart(cartContentRef, cartOverlayRef);
    
    cart.forEach((_, index) => {
-       let itemHTML = getNoteTemplateOrderCart(index);
-       cartContentRef.innerHTML += itemHTML;
-       cartOverlayRef.innerHTML += itemHTML;
+      let itemHTML = getNoteTemplateOrderCart(index);
+      cartContentRef.innerHTML += itemHTML;
+      cartOverlayRef.innerHTML += itemHTML;
    });
 
    renderCartTotal();
@@ -55,15 +55,15 @@ function renderMyOrder() {
 function showOrderMessage() {
    let orderMessage = document.getElementById("addOrder");
    if (orderMessage) {
-       orderMessage.style.display = "block";
+      orderMessage.style.display = "block";
    }
 }
 
 function placeOrder() {
-   cart = []; 
-   saveToLocalStorage(); 
-   renderMyOrder(); 
-   renderCartTotal(); 
+   cart = [];
+   saveToLocalStorage();
+   renderMyOrder();
+   renderCartTotal();
    showOrderMessage();
 }
 
@@ -75,26 +75,6 @@ function renderEmptyCart(cartRef, overlayRef) {
                         <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
                      </div>`;
    cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
-}
-
-function renderCartTotal() {
-   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
-   let deliveryCost = 5.00, grandTotal = total + deliveryCost;
-   let totalHTML =   `<div class="mySum">
-                        <div class="deliveryPrice">
-                           <p>Lieferkosten:</p>
-                           <p>${deliveryCost.toFixed(2)} €</p>
-                        </div>
-                        <div class="deliveryPrice">
-                           <p class="bold">Gesamtbetrag:</p>
-                           <p class="bold">${grandTotal.toFixed(2)} €</p>
-                        </div>
-                        <div class="myCartBtn">
-                           <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
-                           <p>Testbestellung war erfolgreich!</p>
-                        </div>
-                     </div>`;
-   document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
 }
 
 function renderMySum() {
@@ -129,12 +109,12 @@ function addToDessertCart(index) {
    let existingDishDessert = cart.find(item => item.courts === sellectedDishDessert.courts);
    if (existingDishDessert) { existingDishDessert.amount += 1;
    } else { cart.push({
-         courts: sellectedDishDessert.courts,
-         with: sellectedDishDessert.with,
-         price: sellectedDishDessert.price,
-         amount: 1,
-      });
-   }
+            courts: sellectedDishDessert.courts,
+            with: sellectedDishDessert.with,
+            price: sellectedDishDessert.price,
+            amount: 1,
+            });
+         }
    saveToLocalStorage();
    renderMyOrder();
    renderMySum(); 
@@ -145,11 +125,11 @@ function addToDrinksCart(index) {
    let existingDishDrinks = cart.find(item => item.courts === sellectedDishDrinks.courts);
    if (existingDishDrinks) { existingDishDrinks.amount += 1;
    } else { cart.push({
-         courts: sellectedDishDrinks.courts,
-         with: sellectedDishDrinks.with,
-         price: sellectedDishDrinks.price,
-         amount: 1,
-      });
+            courts: sellectedDishDrinks.courts,
+            with: sellectedDishDrinks.with,
+            price: sellectedDishDrinks.price,
+            amount: 1,
+         });
    }
    saveToLocalStorage();
    renderMyOrder();
