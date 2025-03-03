@@ -77,6 +77,26 @@ function renderEmptyCart(cartRef, overlayRef) {
    cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
 }
 
+function renderCartTotal() {
+   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
+   let deliveryCost = 5.00, grandTotal = total + deliveryCost;
+   let totalHTML =   `<div class="mySum">
+                        <div class="deliveryPrice">
+                           <p>Lieferkosten:</p>
+                           <p>${deliveryCost.toFixed(2)} €</p>
+                        </div>
+                        <div class="deliveryPrice">
+                           <p class="bold">Gesamtbetrag:</p>
+                           <p class="bold">${grandTotal.toFixed(2)} €</p>
+                        </div>
+                        <div class="myCartBtn">
+                           <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
+                           <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
+                        </div>
+                     </div>`;
+   document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
+}
+
 function renderMySum() {
    let priceContentRef = document.getElementById('mySum');
    let priceContentRefOverlay = document.getElementById('mySumOverlay');
