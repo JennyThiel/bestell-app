@@ -1,5 +1,6 @@
 function getNoteTemplateMenu(indexMyMenu) {
-    let menu = myMenu[indexMyMenu]
+    let menu = myMenu[indexMyMenu];
+   
 
     return `<div class="food">
                 <div>
@@ -73,8 +74,9 @@ function getSumTemplate(total, deliveryCost) {
                 </div>
                 <div class="myCartBtn">
                     <button class="cartBtn" onclick="remove()" onclick="removeOverlay()">Bestellen</button>
-                    <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
+                    <p class="addOrderBtn" id="addOrder">Bestellung war Erfolgreich!</p>
                 </div>` 
                 : ""}
             </div>`;
 }
+

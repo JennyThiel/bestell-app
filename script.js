@@ -14,6 +14,8 @@ function getFromLocalStorage() {
 
 function renderMyMenu() {
    let menuContentRef = document.getElementById('menuContent');
+   // let dessertContentRef = document.getElementById('dessertContent');
+   // let drinksContentRef = document.getElementById('drinksContent');
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
@@ -32,7 +34,7 @@ function renderMyDessert() {
    let drinksContentRef = document.getElementById('drinksContent');
    
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
-      drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
+            drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
    }
 }
 
@@ -207,15 +209,17 @@ function removeOverlay() {
    }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-   document.getElementById("openOverlay").addEventListener("click", showOverlay);
-   document.getElementById("closeOverlay")?.addEventListener("click", hideOverlay);
-});
+
 
 function showOverlay() {
-   document.getElementById("overlay").style.display = "flex"; 
+   document.getElementById("overlay").style.display = "flex";
 }
 
 function hideOverlay() {
    document.getElementById("overlay").style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("openOverlay").addEventListener("click", showOverlay);
+document.getElementById("closeOverlay")?.addEventListener("click", hideOverlay);
+});
