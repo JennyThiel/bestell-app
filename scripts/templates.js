@@ -80,3 +80,30 @@ function getSumTemplate(total, deliveryCost) {
             </div>`;
 }
 
+function renderCartTotal() {
+    let total = 0;
+    
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].price * cart[i].amount;
+    }
+
+    let deliveryCost = 5.00;
+    let grandTotal = total + deliveryCost;
+    
+    let totalHTML = `<div class="mySum">
+                         <div class="deliveryPrice">
+                            <p>Lieferkosten:</p>
+                            <p>${deliveryCost.toFixed(2)} €</p>
+                         </div>
+                         <div class="deliveryPrice">
+                            <p class="bold">Gesamtbetrag:</p>
+                            <p class="bold">${grandTotal.toFixed(2)} €</p>
+                         </div>
+                         <div class="myCartBtn">
+                            <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
+                            <p class="addOrderBtn" id="addOrder">Bestellung war Erfolgreich!</p>
+                         </div>
+                      </div>`;
+
+    document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
+}

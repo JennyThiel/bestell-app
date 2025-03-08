@@ -12,31 +12,22 @@ function getFromLocalStorage() {
    cart = JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-function renderMyMenu() {
+function renderMyMenu(menuContent, dessertContent, drinksContent) {
    let menuContentRef = document.getElementById('menuContent');
-   // let dessertContentRef = document.getElementById('dessertContent');
-   // let drinksContentRef = document.getElementById('drinksContent');
+   let dessertContentRef = document.getElementById('dessertContent');
+   let drinksContentRef = document.getElementById('drinksContent');
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
    }
-}
-
-function renderMyDessert() {
-   let dessertContentRef = document.getElementById('dessertContent');
-   
    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
       dessertContentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
    }
-}
-
- function renderMyDrinks() {
-   let drinksContentRef = document.getElementById('drinksContent');
-   
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
-            drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
+      drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
    }
 }
+
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
@@ -45,7 +36,7 @@ function renderMyOrder() {
    
    if (!cart.length) return renderEmptyCart(cartContentRef, cartOverlayRef);
    
-   cart.forEach((_, index) => {
+   cart.forEach((_, index) => {  // fehler
       let itemHTML = getNoteTemplateOrderCart(index);
       cartContentRef.innerHTML += itemHTML;
       cartOverlayRef.innerHTML += itemHTML;
@@ -67,47 +58,6 @@ function placeOrder() {
    renderMyOrder();
    renderCartTotal();
    showOrderMessage();
-}
-
-showOrderMessage();
-
-function renderEmptyCart(cartRef, overlayRef) {
-   let emptyHTML =   `<div class="basket">
-                        <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
-                        <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
-                     </div>`;
-   cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
-}
-
-function renderCartTotal() {
-   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
-   let deliveryCost = 5.00, grandTotal = total + deliveryCost;
-   let totalHTML =   `<div class="mySum">
-                        <div class="deliveryPrice">
-                           <p>Lieferkosten:</p>
-                           <p>${deliveryCost.toFixed(2)} €</p>
-                        </div>
-                        <div class="deliveryPrice">
-                           <p class="bold">Gesamtbetrag:</p>
-                           <p class="bold">${grandTotal.toFixed(2)} €</p>
-                        </div>
-                        <div class="myCartBtn">
-                           <button class="cartBtn" onclick="placeOrder()">Bestellen</button>
-                           <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
-                        </div>
-                     </div>`;
-   document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
-}
-
-function renderMySum() {
-   let priceContentRef = document.getElementById('mySum');
-   let priceContentRefOverlay = document.getElementById('mySumOverlay');
-   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0);
-   let deliveryCost = cart.length ? 5.00 : 0;
-
-   priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
-   priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
-   saveToLocalStorage();
 }
 
 function addToCart(index) {
@@ -158,6 +108,29 @@ function addToDrinksCart(index) {
    renderMySum();
 }
 
+showOrderMessage();
+
+function renderEmptyCart(cartRef, overlayRef) {
+   let emptyHTML =   `<div class="basket">
+                        <img class="shoppingCartIcon" src="./assets/icons/warenkorb.png" alt="WarenkorbIcon">
+                        <p class="shoppingCartText">Befülle hier deinen Warenkorb</p>
+                     </div>`;
+   cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
+}
+
+function renderMySum() {
+   let priceContentRef = document.getElementById('mySum');
+   let priceContentRefOverlay = document.getElementById('mySumOverlay');
+   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0); //fehler
+   let deliveryCost = cart.length ? 5.00 : 0;
+
+   priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
+   priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
+   saveToLocalStorage();
+}
+
+
+
 function deleteOne(index) {
    if (cart[index].amount > 1) {
       cart[index].amount--;
@@ -184,7 +157,7 @@ function remove() {
    let orderMessage = document.getElementById("addOrder") || document.createElement("p");
    orderMessage.id = "addOrder";
    orderMessage.className = "addOrderBtn";
-   orderMessage.textContent = "Testbestellung war Erfolgreich!";
+   orderMessage.textContent = "Bestellung war Erfolgreich!";
    orderMessage.style.display = "flex";
 
    if (!document.getElementById("addOrder")) {
@@ -201,7 +174,7 @@ function removeOverlay() {
    let orderMessage = document.getElementById("addOrderOverlay") || document.createElement("p");
    orderMessage.id = "addOrderOverlay";
    orderMessage.className = "addOrderBtn";
-   orderMessage.textContent = "Testbestellung war Erfolgreich!";
+   orderMessage.textContent = "Bestellung war Erfolgreich!";
    orderMessage.style.display = "flex";
 
    if (!document.getElementById("addOrderOverlay")) {
