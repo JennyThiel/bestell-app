@@ -12,29 +12,47 @@ function getFromLocalStorage() {
    cart = JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-function renderMyMenu() {
-   let menuContentRef = document.getElementById('menuContent');
+// function renderMyMenu() {
+//    let menuContentRef = document.getElementById('menuContent');
    
+//    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
+//       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
+//    }
+// }
+
+// function renderMyDessert() {
+//    let dessertContentRef = document.getElementById('dessertContent');
+   
+//    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
+//       dessertContentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
+//    }
+// }
+
+//  function renderMyDrinks() {
+//    let drinksContentRef = document.getElementById('drinksContent');
+   
+//    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
+//       drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
+//    }
+// }
+
+function renderMyMenu(menuContent, dessertContent, drinksContent) {
+   let menuContentRef = document.getElementById('menuContent');
+   let dessertContentRef = document.getElementById('dessertContent');
+   let drinksContentRef = document.getElementById('drinksContent');
+   menuContentRef.innerHTML = menuContent
+   dessertContentRef.innerHTML = dessertContent
+   drinksContentRef.innerHTML = drinksContent
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
    }
-}
-
-function renderMyDessert() {
-   let dessertContentRef = document.getElementById('dessertContent');
-   
    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
       dessertContentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
    }
-}
-
- function renderMyDrinks() {
-   let drinksContentRef = document.getElementById('drinksContent');
-   
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
       drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
    }
-}
+};
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
