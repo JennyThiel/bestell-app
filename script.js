@@ -16,9 +16,9 @@ function renderMyMenu(menuContent, dessertContent, drinksContent) {
    let menuContentRef = document.getElementById('menuContent');
    let dessertContentRef = document.getElementById('dessertContent');
    let drinksContentRef = document.getElementById('drinksContent');
-   menuContentRef.innerHTML = menuContent
-   dessertContentRef.innerHTML = dessertContent
-   drinksContentRef.innerHTML = drinksContent
+   // menuContentRef.innerHTML = menuContent
+   // dessertContentRef.innerHTML = dessertContent
+   // drinksContentRef.innerHTML = drinksContent
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
