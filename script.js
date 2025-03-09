@@ -16,6 +16,9 @@ function renderMyMenu(menuContent, dessertContent, drinksContent) {
    let menuContentRef = document.getElementById('menuContent');
    let dessertContentRef = document.getElementById('dessertContent');
    let drinksContentRef = document.getElementById('drinksContent');
+   menuContentRef.innerHTML = menuContent
+   dessertContentRef.innerHTML = dessertContent
+   drinksContentRef.innerHTML = drinksContent
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
       menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
@@ -26,31 +29,41 @@ function renderMyMenu(menuContent, dessertContent, drinksContent) {
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
       drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
    }
-}
-
+};
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
    let cartOverlayRef = document.getElementById('orderbasketOverlay');
-   cartContentRef.innerHTML = cartOverlayRef.innerHTML = "";
-   
+   cartContentRef.innerHTML = "";
+   cartOverlayRef.innerHTML = "";
    if (!cart.length) return renderEmptyCart(cartContentRef, cartOverlayRef);
-   
-   cart.forEach((_, index) => {  // fehler
+   let contentHTML = "";
+   let overlayHTML = "";
+   for (let index = 0; index < cart.length; index++) {
       let itemHTML = getNoteTemplateOrderCart(index);
-      cartContentRef.innerHTML += itemHTML;
-      cartOverlayRef.innerHTML += itemHTML;
-   });
+      contentHTML += itemHTML;
+      overlayHTML += itemHTML;
+   }
+   cartContentRef.innerHTML = contentHTML;
+   cartOverlayRef.innerHTML = overlayHTML;
 
    renderCartTotal();
 }
 
-function showOrderMessage() {
-   let orderMessage = document.getElementById("addOrder");
-   if (orderMessage) {
-      orderMessage.style.display = "block";
+function renderMySum() {
+   let priceContentRef = document.getElementById('mySum');
+   let priceContentRefOverlay = document.getElementById('mySumOverlay');
+   let total = 0;
+   for (let index = 0; index < cart.length; index++) {
+       total += cart[index].price * cart[index].amount;
    }
+   let deliveryCost = cart.length ? 5.00 : 0;
+   priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
+   priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
+   
+   saveToLocalStorage();
 }
+
 
 function placeOrder() {
    cart = [];
@@ -118,18 +131,23 @@ function renderEmptyCart(cartRef, overlayRef) {
    cartRef.innerHTML = overlayRef.innerHTML = emptyHTML;
 }
 
-function renderMySum() {
-   let priceContentRef = document.getElementById('mySum');
-   let priceContentRefOverlay = document.getElementById('mySumOverlay');
-   let total = cart.reduce((sum, item) => sum + item.price * item.amount, 0); //fehler
-   let deliveryCost = cart.length ? 5.00 : 0;
+function renderCartTotal() {
+   let total = 0;
+   for (let i = 0; i < cart.length; i++) {
+       total += cart[i].price * cart[i].amount;
+   }
+   let totalHTML = `<div class="mySum">
+                   </div>`;
 
-   priceContentRef.innerHTML = getSumTemplate(total, deliveryCost);
-   priceContentRefOverlay.innerHTML = getSumTemplate(total, deliveryCost);
-   saveToLocalStorage();
+   document.getElementById('mySum').innerHTML = document.getElementById('mySumOverlay').innerHTML = totalHTML;
 }
 
-
+function addOne(index) {
+   cart[index].amount++;
+   saveToLocalStorage();
+   renderMyOrder();
+   renderMySum();
+}
 
 function deleteOne(index) {
    if (cart[index].amount > 1) {
@@ -141,12 +159,18 @@ function deleteOne(index) {
    renderMySum();
 }
 
-function addOne(index) {
-   cart[index].amount++;
-   saveToLocalStorage();
-   renderMyOrder();
-   renderMySum();
+
+function showOrderMessage() {
+   let orderMessage = document.getElementById("addOrder");
+   let orderMessageOverlay = document.getElementById("addOrderOverlay");
+   if (orderMessage) {
+      orderMessage.style.display = "block";
+   }
+   if (orderMessageOverlay) {
+      orderMessageOverlay.style.display = "block";
+   } return "Bestellung war Erfolgreich!";
 }
+
 
 function remove() {
    cart = [];
@@ -155,44 +179,29 @@ function remove() {
    renderMySum();
 
    let orderMessage = document.getElementById("addOrder") || document.createElement("p");
+   let orderMessageOverlay = document.getElementById("addOrderOverlay") || document.createElement("p");
    orderMessage.id = "addOrder";
+   orderMessageOverlay.id = "addOrderOverlay";
    orderMessage.className = "addOrderBtn";
+   orderMessageOverlay.className = "addOrderBtn";
    orderMessage.textContent = "Bestellung war Erfolgreich!";
+   orderMessageOverlay.textContent = "Bestellung war Erfolgreich!";
    orderMessage.style.display = "flex";
+   orderMessageOverlay.style.display = "flex";
 
    if (!document.getElementById("addOrder")) {
       document.getElementById("mySum")?.appendChild(orderMessage);
    }
-}
-
-function removeOverlay() {
-   cart = [];
-   saveToLocalStorage();
-   renderMyOrder();
-   renderMySum();
-
-   let orderMessage = document.getElementById("addOrderOverlay") || document.createElement("p");
-   orderMessage.id = "addOrderOverlay";
-   orderMessage.className = "addOrderBtn";
-   orderMessage.textContent = "Bestellung war Erfolgreich!";
-   orderMessage.style.display = "flex";
-
    if (!document.getElementById("addOrderOverlay")) {
-      document.getElementById("mySumOverlay")?.appendChild(orderMessage);
+      document.getElementById("mySumOverlay")?.appendChild(orderMessageOverlay);
    }
 }
+function toggleOverlay(show) {
+   document.getElementById("overlay").style.display = show ? "flex" : "none";
 
-
-
-function showOverlay() {
-   document.getElementById("overlay").style.display = "flex";
-}
-
-function hideOverlay() {
-   document.getElementById("overlay").style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-document.getElementById("openOverlay").addEventListener("click", showOverlay);
-document.getElementById("closeOverlay")?.addEventListener("click", hideOverlay);
+   document.getElementById("openOverlay").addEventListener("click", () => toggleOverlay(true));
+   document.getElementById("closeOverlay")?.addEventListener("click", () => toggleOverlay(false));
 });
