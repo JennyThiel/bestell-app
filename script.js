@@ -74,8 +74,6 @@ function addToCart(index, menu) {
    let sellectedDish = myMenu[index];
    let sellectedDishDessert = myDessert[index];
    let sellectedDishDrinks = myDrinks[index];
-
-
    let existingDish = cart.find(item => item.courts === sellectedDish.courts);
    if (existingDish) { existingDish.amount += 1;
    } else { cart.push({
