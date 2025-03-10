@@ -70,10 +70,12 @@ function placeOrder() {
    showOrderMessage();
 }
 
-function addToCart(index) {
+function addToCart(index, menu) {
    let sellectedDish = myMenu[index];
    let sellectedDishDessert = myDessert[index];
    let sellectedDishDrinks = myDrinks[index];
+
+
    let existingDish = cart.find(item => item.courts === sellectedDish.courts);
    if (existingDish) { existingDish.amount += 1;
    } else { cart.push({
@@ -181,8 +183,6 @@ function remove() {
    let orderMessageOverlay = document.getElementById("addOrderOverlay") || document.createElement("p");
    orderMessage.id = "addOrder";
    orderMessageOverlay.id = "addOrderOverlay";
-   orderMessage.className = "addOrderBtn";
-   orderMessageOverlay.className = "addOrderBtn";
    orderMessage.textContent = "Bestellung war Erfolgreich!";
    orderMessageOverlay.textContent = "Bestellung war Erfolgreich!";
    orderMessage.style.display = "flex";
