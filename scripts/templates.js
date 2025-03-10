@@ -1,8 +1,6 @@
-function getNoteTemplateMenu(indexMyMenu, indexMyDessert, indexMyDrinks) {
-    let menu = myMenu[indexMyMenu];
-    let dessert = myDessert[indexMyDessert];
-    let drinks = myDrinks[indexMyDrinks];
-
+function getNoteTemplateMenu(indexMyMenu, myMeal) {
+    let menu = myMeal[indexMyMenu];
+   
     return `<div class="food">
                 <div>
                     <h3>${menu.courts}</h3>
@@ -14,36 +12,6 @@ function getNoteTemplateMenu(indexMyMenu, indexMyDessert, indexMyDrinks) {
                 </button>
             </div>`;
 };
-
-function getNoteTemplateDessert(indexMyDessert) {
-    let dessert = myDessert[indexMyDessert]
-
-    return `<div class="food">
-                <div>
-                    <h3>${dessert.courts}</h3>
-                    <p>${dessert.with}</p>
-                    <p>${dessert.price.toFixed(2)} €</p>
-                </div>
-                <button onclick="addToCart(${indexMyDessert})" id="dessertBtn-${indexMyDessert}" class="orderBtn">
-                    <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
-                </button>
-            </div>`;
-}
-
-function getNoteTemplateDrinks(indexMyDrinks) {
-    let drinks = myDrinks[indexMyDrinks]
-
-    return `<div class="food">
-                <div>
-                    <h3>${drinks.courts}</h3>
-                    <p>${drinks.with}</p>
-                    <p>${drinks.price.toFixed(2)} €</p>
-                </div>
-                <button onclick="addToCart(${indexMyDrinks})" id="drinksBtn${indexMyDrinks}" class="orderBtn">
-                    <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
-                </button>
-            </div>`;
-}
 
 function getNoteTemplateOrderCart(indexMyCart) {
     let selectedCart = cart[indexMyCart];

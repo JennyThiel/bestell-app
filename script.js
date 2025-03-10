@@ -12,22 +12,19 @@ function getFromLocalStorage() {
    cart = JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-function renderMyMenu(menuContent, dessertContent, drinksContent) {
+function renderMyMenu() {
    let menuContentRef = document.getElementById('menuContent');
    let dessertContentRef = document.getElementById('dessertContent');
    let drinksContentRef = document.getElementById('drinksContent');
-   // menuContentRef.innerHTML = menuContent
-   // dessertContentRef.innerHTML = dessertContent
-   // drinksContentRef.innerHTML = drinksContent
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
-      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu);
+      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu, myMenu);
    }
    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
-      dessertContentRef.innerHTML += getNoteTemplateDessert(indexMyDessert);
+      dessertContentRef.innerHTML += getNoteTemplateMenu(indexMyDessert, myDessert);
    }
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
-      drinksContentRef.innerHTML += getNoteTemplateDrinks(indexMyDrinks);
+      drinksContentRef.innerHTML += getNoteTemplateMenu(indexMyDrinks, myDrinks);
    }
 };
 
@@ -75,6 +72,8 @@ function placeOrder() {
 
 function addToCart(index) {
    let sellectedDish = myMenu[index];
+   let sellectedDishDessert = myDessert[index];
+   let sellectedDishDrinks = myDrinks[index];
    let existingDish = cart.find(item => item.courts === sellectedDish.courts);
    if (existingDish) { existingDish.amount += 1;
    } else { cart.push({
@@ -89,37 +88,37 @@ function addToCart(index) {
    renderMySum(); 
 }
 
-function addToDessertCart(index) {
-   let sellectedDishDessert = myDessert[index];
-   let existingDishDessert = cart.find(item => item.courts === sellectedDishDessert.courts);
-   if (existingDishDessert) { existingDishDessert.amount += 1;
-   } else { cart.push({
-            courts: sellectedDishDessert.courts,
-            with: sellectedDishDessert.with,
-            price: sellectedDishDessert.price,
-            amount: 1,
-            });
-         }
-   saveToLocalStorage();
-   renderMyOrder();
-   renderMySum(); 
-}
+// function addToDessertCart(index) {
+//    let sellectedDishDessert = myDessert[index];
+//    let existingDishDessert = cart.find(item => item.courts === sellectedDishDessert.courts);
+//    if (existingDishDessert) { existingDishDessert.amount += 1;
+//    } else { cart.push({
+//             courts: sellectedDishDessert.courts,
+//             with: sellectedDishDessert.with,
+//             price: sellectedDishDessert.price,
+//             amount: 1,
+//             });
+//          }
+//    saveToLocalStorage();
+//    renderMyOrder();
+//    renderMySum(); 
+// }
 
-function addToDrinksCart(index) {
-   let sellectedDishDrinks = myDrinks[index];
-   let existingDishDrinks = cart.find(item => item.courts === sellectedDishDrinks.courts);
-   if (existingDishDrinks) { existingDishDrinks.amount += 1;
-   } else { cart.push({
-            courts: sellectedDishDrinks.courts,
-            with: sellectedDishDrinks.with,
-            price: sellectedDishDrinks.price,
-            amount: 1,
-         });
-   }
-   saveToLocalStorage();
-   renderMyOrder();
-   renderMySum();
-}
+// function addToDrinksCart(index) {
+//    let sellectedDishDrinks = myDrinks[index];
+//    let existingDishDrinks = cart.find(item => item.courts === sellectedDishDrinks.courts);
+//    if (existingDishDrinks) { existingDishDrinks.amount += 1;
+//    } else { cart.push({
+//             courts: sellectedDishDrinks.courts,
+//             with: sellectedDishDrinks.with,
+//             price: sellectedDishDrinks.price,
+//             amount: 1,
+//          });
+//    }
+//    saveToLocalStorage();
+//    renderMyOrder();
+//    renderMySum();
+// }
 
 showOrderMessage();
 
