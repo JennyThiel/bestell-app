@@ -18,15 +18,15 @@ function renderMyMenu() {
    let drinksContentRef = document.getElementById('drinksContent');
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
-      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu, myMenu, myMenu);
+      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu, myMenu, 'menu');
    }
    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
-      dessertContentRef.innerHTML += getNoteTemplateMenu(indexMyDessert, myDessert, myDessert);
+      dessertContentRef.innerHTML += getNoteTemplateMenu(indexMyDessert, myDessert, 'dessert');
    }
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
-      drinksContentRef.innerHTML += getNoteTemplateMenu(indexMyDrinks, myDrinks, myDrinks);
+      drinksContentRef.innerHTML += getNoteTemplateMenu(indexMyDrinks, myDrinks, 'drinks');
    }
-};
+}
 
 function renderMyOrder() {
    let cartContentRef = document.getElementById('orderbasket');
@@ -70,23 +70,37 @@ function placeOrder() {
    showOrderMessage();
 }
 
-function addToCart(index) {
-   let sellectedDish = myMenu[index];
-   let sellectedDishDessert = myDessert[index];
-   let sellectedDishDrinks = myDrinks[index];
-   let existingDish = cart.find(item => item.courts === sellectedDish.courts);
-   if (existingDish) { existingDish.amount += 1;
-   } else { cart.push({
-         courts: sellectedDish.courts,
-         with: sellectedDish.with,
-         price: sellectedDish.price,
+function addToCart(index, category) {
+   let selectedDish;
+
+   if (category === 'menu') {
+      selectedDish = myMenu[index];
+   } else if (category === 'dessert') {
+      selectedDish = myDessert[index];
+   } else if (category === 'drinks') {
+      selectedDish = myDrinks[index];
+   }
+
+   if (!selectedDish) return;
+
+   let existingDish = cart.find(item => item.courts === selectedDish.courts);
+
+   if (existingDish) {
+      existingDish.amount += 1;
+   } else {
+      cart.push({
+         courts: selectedDish.courts,
+         with: selectedDish.with,
+         price: selectedDish.price,
          amount: 1,
       });
-   } 
+   }
+
    saveToLocalStorage();
    renderMyOrder();
-   renderMySum(); 
+   renderMySum();
 }
+
 
 showOrderMessage();
 
