@@ -18,13 +18,13 @@ function renderMyMenu() {
    let drinksContentRef = document.getElementById('drinksContent');
    
    for (let indexMyMenu = 0; indexMyMenu < myMenu.length; indexMyMenu++) {
-      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu, myMenu);
+      menuContentRef.innerHTML += getNoteTemplateMenu(indexMyMenu, myMenu, myMenu);
    }
    for (let indexMyDessert = 0; indexMyDessert < myDessert.length; indexMyDessert++) {
-      dessertContentRef.innerHTML += getNoteTemplateMenu(indexMyDessert, myDessert);
+      dessertContentRef.innerHTML += getNoteTemplateMenu(indexMyDessert, myDessert, myDessert);
    }
    for (let indexMyDrinks = 0; indexMyDrinks < myDrinks.length; indexMyDrinks++) {
-      drinksContentRef.innerHTML += getNoteTemplateMenu(indexMyDrinks, myDrinks);
+      drinksContentRef.innerHTML += getNoteTemplateMenu(indexMyDrinks, myDrinks, myDrinks);
    }
 };
 
@@ -70,7 +70,7 @@ function placeOrder() {
    showOrderMessage();
 }
 
-function addToCart(index, menu) {
+function addToCart(index) {
    let sellectedDish = myMenu[index];
    let sellectedDishDessert = myDessert[index];
    let sellectedDishDrinks = myDrinks[index];
@@ -82,43 +82,11 @@ function addToCart(index, menu) {
          price: sellectedDish.price,
          amount: 1,
       });
-   }
+   } 
    saveToLocalStorage();
    renderMyOrder();
    renderMySum(); 
 }
-
-// function addToDessertCart(index) {
-//    let sellectedDishDessert = myDessert[index];
-//    let existingDishDessert = cart.find(item => item.courts === sellectedDishDessert.courts);
-//    if (existingDishDessert) { existingDishDessert.amount += 1;
-//    } else { cart.push({
-//             courts: sellectedDishDessert.courts,
-//             with: sellectedDishDessert.with,
-//             price: sellectedDishDessert.price,
-//             amount: 1,
-//             });
-//          }
-//    saveToLocalStorage();
-//    renderMyOrder();
-//    renderMySum(); 
-// }
-
-// function addToDrinksCart(index) {
-//    let sellectedDishDrinks = myDrinks[index];
-//    let existingDishDrinks = cart.find(item => item.courts === sellectedDishDrinks.courts);
-//    if (existingDishDrinks) { existingDishDrinks.amount += 1;
-//    } else { cart.push({
-//             courts: sellectedDishDrinks.courts,
-//             with: sellectedDishDrinks.with,
-//             price: sellectedDishDrinks.price,
-//             amount: 1,
-//          });
-//    }
-//    saveToLocalStorage();
-//    renderMyOrder();
-//    renderMySum();
-// }
 
 showOrderMessage();
 
