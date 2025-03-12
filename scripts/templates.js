@@ -1,4 +1,4 @@
-function getNoteTemplateMenu(indexMyMenu, myMeal) {
+function getNoteTemplateMenu(indexMyMenu, myMeal, category) {
     let menu = myMeal[indexMyMenu];
    
     return `<div class="food">
@@ -7,11 +7,11 @@ function getNoteTemplateMenu(indexMyMenu, myMeal) {
                     <p>${menu.with}</p>
                     <p>${menu.price.toFixed(2)} €</p>
                 </div>
-                <button onclick="addToCart(${indexMyMenu})" id="myMenuBtn-${indexMyMenu}" class="orderBtn">
+                <button onclick="addToCart(${indexMyMenu}, '${category}')" id="myMenuBtn-${indexMyMenu}" class="orderBtn">
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
-};
+}
 
 function getNoteTemplateOrderCart(indexMyCart) {
     let selectedCart = cart[indexMyCart];
