@@ -1,6 +1,6 @@
-function getNoteTemplateMenu(indexMyMenu) {
-    let menu = myMenu[indexMyMenu]
-
+function getNoteTemplateMenu(indexMyMenu, myMeal) {
+    let menu = myMeal[indexMyMenu];
+   
     return `<div class="food">
                 <div>
                     <h3>${menu.courts}</h3>
@@ -11,37 +11,7 @@ function getNoteTemplateMenu(indexMyMenu) {
                     <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
                 </button>
             </div>`;
-}
-
-function getNoteTemplateDessert(indexMyDessert) {
-    let dessert = myDessert[indexMyDessert]
-
-    return `<div class="food">
-                <div>
-                    <h3>${dessert.courts}</h3>
-                    <p>${dessert.with}</p>
-                    <p>${dessert.price.toFixed(2)} €</p>
-                </div>
-                <button onclick="addToDessertCart(${indexMyDessert})" id="dessertBtn-${indexMyDessert}" class="orderBtn">
-                    <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
-                </button>
-            </div>`;
-}
-
-function getNoteTemplateDrinks(indexMyDrinks) {
-    let drinks = myDrinks[indexMyDrinks]
-
-    return `<div class="food">
-                <div>
-                    <h3>${drinks.courts}</h3>
-                    <p>${drinks.with}</p>
-                    <p>${drinks.price.toFixed(2)} €</p>
-                </div>    
-                <button onclick="addToDrinksCart(${indexMyDrinks})" id="drinksBtn${indexMyDrinks}" class="orderBtn">
-                    <img class="orderBtnImg" src="./assets/icons/plus.png" alt="zum Warenkorb">
-                </button>
-            </div>`;
-}
+};
 
 function getNoteTemplateOrderCart(indexMyCart) {
     let selectedCart = cart[indexMyCart];
@@ -56,13 +26,12 @@ function getNoteTemplateOrderCart(indexMyCart) {
                         <button onclick="addOne(${indexMyCart})" class="plusBtn">+</button>
                     </div>
                     <p class="bold">${(selectedCart.price * selectedCart.amount).toFixed(2)} €</p>
-                </div>    
+                </div>
             </div>`;
 }
 
 function getSumTemplate(total, deliveryCost) {
-    return `<div class="mySum">
-                ${total > 0 ? `
+    return `<div class="mySum">${total > 0 ? `
                 <div class="deliveryPrice">
                     <p>Lieferkosten:</p>
                     <p>${deliveryCost.toFixed(2)} €</p>
@@ -73,8 +42,7 @@ function getSumTemplate(total, deliveryCost) {
                 </div>
                 <div class="myCartBtn">
                     <button class="cartBtn" onclick="remove()" onclick="removeOverlay()">Bestellen</button>
-                    <p class="addOrderBtn" id="addOrder">Testbestellung war Erfolgreich!</p>
-                </div>` 
+                </div>`
                 : ""}
             </div>`;
 }
