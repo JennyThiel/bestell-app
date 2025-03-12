@@ -1,4 +1,4 @@
-function getNoteTemplateMenu(indexMyMenu, myMeal,) {
+function getNoteTemplateMenu(indexMyMenu, myMeal) {
     let menu = myMeal[indexMyMenu];
    
     return `<div class="food">
