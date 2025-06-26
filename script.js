@@ -177,7 +177,6 @@ function remove() {
 }
 function toggleOverlay(show) {
    document.getElementById("overlay").style.display = show ? "flex" : "none";
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
